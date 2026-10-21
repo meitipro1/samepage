@@ -1,0 +1,47 @@
+---
+title: FAQ and changelog
+description: Short answers to the questions both sides ask, and what changed.
+---
+
+## Is it a contract?
+
+It is a record both sides wrote and signed, on chain and timestamped. Whether it binds anyone is a question for the
+people and the place involved; Samepage only shows that both described the same deal.
+
+## Who sees my account?
+
+Nobody until both have sealed. Once both open, everyone.
+
+## Can I change my account after sealing?
+
+Not in the same round: one seal per side per round, and the open must match it. If the round comes back different, round
+2 is a fresh seal.
+
+## What if I lose my ticket?
+
+Load the downloaded file on the page. Without the text and salt the seal cannot be opened, and missing the opening window
+loses the deposit.
+
+## What if they ghost?
+
+Wait for the window to close, then press **Close as no-show**. Their deposit is credited to you; withdraw it from
+[My pages](/me).
+
+## Why two rounds and not more?
+
+Two rounds catch the misunderstanding and give both a chance to fix it. A third would let a side ask the same question
+until the answer suits. If round 2 still differs, the deal is not agreed, and nobody loses money for saying so.
+
+## Can one side's text tell the judge what to say?
+
+It can try. Both accounts are fenced as data before they reach the model: every `<` and `>` is replaced, so no text can
+close its own block, and the prompt says to ignore any instruction inside the accounts. Golden case 8 puts an instruction
+in an account; its result is in the [evaluation](/docs/more/evaluation).
+
+## Which network?
+
+GenLayer Studio Next, chain 61997. See [Addresses and network](/docs/reference/addresses).
+
+## Changelog
+
+- **October 2026.** First deployment on Studio Next: ten methods, both orders on every validator, golden cases published.

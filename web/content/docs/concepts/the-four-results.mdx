@@ -1,0 +1,32 @@
+---
+title: The four results
+description: Same page, different, gaps and no show, what each one means and what it does with the deposits.
+---
+
+The model returns six statuses. The contract computes the verdict from them, so the rule for agreeing is code, not
+wording, and the same page always means the same thing on every page.
+
+```python
+differ = [t for t in TERMS if status[t] == "DIFFER"]
+gaps = [t for t in REQUIRED if status[t] == "ABSENT"]   # amount, deliverable, deadline
+verdict = "DIFFERENT" if differ else ("GAPS" if gaps else "SAME_PAGE")
+```
+
+| Result | Meaning | Money | Record |
+|---|---|---|---|
+| **Same page** | Every term matches or is absent from both, and amount, deliverable and deadline are stated | Deposits back when both sign | An agreed record with both texts |
+| **Different · N** | At least one term is stated differently, or by only one side | Deposits stay for round 2 | The differing terms, side by side |
+| **Gaps · N** | No differences, but amount, deliverable or deadline is missing from both | Deposits stay for round 2 | The missing terms named |
+| **No show** | A side missed a window to join, seal, open or sign | The absent side's deposit goes to the other | Recorded against the address |
+
+## Two rounds at most
+
+A page has at most two rounds. After round 1 comes back different or with gaps, both sides talk it through and each
+writes and seals again; the round 1 accounts stay on the page. If round 2 is not the same page either, the page closes as
+**not agreed** and both deposits come back, because disagreeing honestly is not ghosting.
+
+## What N counts
+
+For **Different**, N is the number of terms that differ. For **Gaps**, N is the number of required terms neither side
+states. A page that differs on payment and leaves out the deadline reads **Different · 1**: differences come first, and
+round 2 is the time to add the deadline too.

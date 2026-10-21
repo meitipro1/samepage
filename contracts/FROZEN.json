@@ -1,0 +1,21 @@
+{
+  "deployments": {
+    "studio-next": {
+      "chain_id": 61997,
+      "deployed_at": "2026-10-21T09:56:22Z",
+      "explorer": "https://explorer-studio-dev.genlayer.com",
+      "rpc": "https://studio-next.genlayer.com/api",
+      "runtime": "py-genlayer:5jycge4q8k23462jtb0b9fyey1s9qz928sz2nbrd9mg4sxqg2qng",
+      "samepage": "0x7c32684fC11c312685188C105D6F08c2B689b720",
+      "samepage_deployer": "0xBEc5d42aF95DD624aCCDb42d6c3cEE48288C6EF3",
+      "samepage_file": "contracts/samepage.py",
+      "samepage_sha256": "fbc5e9acb133e7c24339bb5556616a4b975afcdfd9e1c2b93bf2f06f40b28d43",
+      "samepage_tx": "0x01c1460f82343e19817c2cedd5622913a21f2ab552f674d2a13b8d6c31b72b2e",
+      "sphinx": "0x864906361b22e044d363083cad710366E8AfECD1",
+      "sphinx_deployer": "0x6b2DC3B417bA9E2ca3c915697A2e840E50C488C5",
+      "sphinx_file": "contracts/sphinx.py",
+      "sphinx_sha256": "a156b3cec2f6c1f2f461aec341caff31e2d2edff0f87f56a5a38e2d70560349d",
+      "sphinx_tx": "0x256c613ad2445bd23ea3c6ba91be3847150cd7b751b2fa669cb24eee00bfbbe8"
+    }
+  }
+}

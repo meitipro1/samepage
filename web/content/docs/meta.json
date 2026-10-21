@@ -1,0 +1,15 @@
+{
+  "title": "Samepage docs",
+  "pages": [
+    "---Getting started---",
+    "index",
+    "quickstart",
+    "signing-a-record",
+    "---Concepts---",
+    "...concepts",
+    "---Reference---",
+    "...reference",
+    "---More---",
+    "...more"
+  ]
+}

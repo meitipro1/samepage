@@ -1,0 +1,331 @@
+{
+  "cases": {
+    "1": {
+      "page_id": 2,
+      "open_tx": "0x3f3afca34789ad5cabae1c9158b49fd68bdeb4d67cf571ef6539c59aeb48fe2d",
+      "join_tx": "0x26cc595945bf68c0a91788fcd68099907e367bebecca0be21dff18b062ebf616",
+      "a_salt": "7e438629-649f-46c0-9467-fac8b454caca",
+      "a_seal_tx": "0xcfb46a94bd20d209073654036a6644320c8927809b94bb80221cdbb9994a813c",
+      "b_salt": "36c972c1-132d-4739-a7bf-98218e3784b1",
+      "b_seal_tx": "0xae494e33fa1f43ff79a63dcedd6fc62bb9525846d36ab978b80f32173c2b0201",
+      "a_reveal_tx": "0xb1f714190f7919134e59fc97781b0b6523cd260529127582705d65c66d45dc40",
+      "b_reveal_tx": "0xca72a9ce89201f2962c4fe84f673818247edfe0a631af5dc9ca23d7568c3d5a1",
+      "check_tx": "0x1d3028eb2e100a15560d1df8c6174cd55facfceccd846042482119e333695647",
+      "statuses": {
+        "amount": "MATCH",
+        "deliverable": "MATCH",
+        "deadline": "MATCH",
+        "payment": "MATCH",
+        "rights": "ABSENT",
+        "cancellation": "ABSENT"
+      },
+      "verdict": "SAME_PAGE",
+      "count": 0,
+      "notes": {
+        "amount": "A: 600 USDC; B: 600 USDC",
+        "cancellation": "Neither mentions what happens if either backs out",
+        "deadline": "A: all live by Oct 24, 2026; B: all up by October 24, 2026",
+        "deliverable": "A: 3 posts on X about Kiln launch, all live; B: three tweets about launch, all up",
+        "payment": "A: all paid after last post live; B: paid on delivery once last live",
+        "rights": "Neither mentions ownership or usage"
+      },
+      "checked_by": "0xdB9074085C84721623b4fac1a158857A6e4B9fDB"
+    },
+    "2": {
+      "page_id": 3,
+      "open_tx": "0x716de64201d978abf6e7b8921c3bdd245eb3bff1e6de8f55ba317a44f4525784",
+      "join_tx": "0x58c953ad7855b5742ce2809efc1288f35ec6cc76dcd2332e81b34974e23293d5",
+      "a_salt": "6b110177-9eb9-4ed5-826a-0da6b6ec2b2c",
+      "a_seal_tx": "0x95be01c779082fad8b00c0a5142e55814f80824241890efd6036916aebb4387a",
+      "b_salt": "16079d07-cc78-45f6-ad46-3b71bf4a1555",
+      "b_seal_tx": "0x97cbd66b15acacfebe35e90730531d31b6aa06e4d636924b2713b3235432bbf3",
+      "a_reveal_tx": "0x4caf6d9125bf21a5d55a67e2545d8374ea30c8f409df914eb191b8a19ddfcaf2",
+      "b_reveal_tx": "0xf721a04891a11332e84e918fa2dc81132d88a4903d0e90468e21be3da6136918",
+      "check_tx": "0x1b78389b951deffb586b25d329ac99dbe9978f390446931d13785010ca68d88c",
+      "statuses": {
+        "amount": "DIFFER",
+        "deliverable": "MATCH",
+        "deadline": "MATCH",
+        "payment": "MATCH",
+        "rights": "ABSENT",
+        "cancellation": "ABSENT"
+      },
+      "verdict": "DIFFERENT",
+      "count": 1,
+      "notes": {
+        "amount": "A: 600 USDC; B: 600 USDT",
+        "cancellation": "neither mentions backing out",
+        "deadline": "A: all 3 live by Oct 24 2026; B: all up by October 24 2026",
+        "deliverable": "A: Sera writes 3 posts on X about Kiln launch, all live; B: I post three tweets about Kiln launch, all up",
+        "payment": "A: all after last post live; B: paid on delivery once last live",
+        "rights": "neither mentions ownership or usage"
+      },
+      "checked_by": "0xdB9074085C84721623b4fac1a158857A6e4B9fDB"
+    },
+    "3": {
+      "page_id": 4,
+      "open_tx": "0x9bcfb66cb8a9ca46d71fbb998b3d5122ddfb5d25f07422b77a7a6420651f95b4",
+      "join_tx": "0xda6774f3cda07df95719fe28d3490463280a3561003fae8b4ac0bdef42c0a743",
+      "a_salt": "5c027eec-f6cc-40c5-afa4-e5bd1c253682",
+      "a_seal_tx": "0x0b409d593386d310e040edf3b3894463af7180ba8d6ee1fcfa6da3e2ed4c7e49",
+      "b_salt": "8795ac6b-2e46-40ec-bc34-11bf8795cd68",
+      "b_seal_tx": "0xfe0d4461e762677c03f7bbbcde05b6d1d0bb879cba5a5b360460930bc5560ac4",
+      "a_reveal_tx": "0xfce2feeaedea509236fbd0c60e8e3de2a1629b69d0d7206514fae54aa753cb94",
+      "b_reveal_tx": "0x290d9e645927326a7ccbe82eb678713265073881e60f502695ff638ac4720c42",
+      "check_tx": "0x8dd768befbafd88b923162b331b202b3832bf2edc6c56133a84231c721addc9e",
+      "statuses": {
+        "amount": "MATCH",
+        "deliverable": "MATCH",
+        "deadline": "MATCH",
+        "payment": "DIFFER",
+        "rights": "ABSENT",
+        "cancellation": "ABSENT"
+      },
+      "verdict": "DIFFERENT",
+      "count": 1,
+      "notes": {
+        "amount": "Both agree on 600 USDC for 3 posts.",
+        "cancellation": "Neither account mentions cancellation terms.",
+        "deadline": "Both agree all posts must be live by October 24, 2026.",
+        "deliverable": "Both agree on 3 posts/tweets about the Kiln launch.",
+        "payment": "Account A specifies a 50/50 split (upfront/completion), while Account B states payment is only made on delivery.",
+        "rights": "Neither account mentions ownership or usage rights."
+      },
+      "checked_by": "0xdB9074085C84721623b4fac1a158857A6e4B9fDB"
+    },
+    "4": {
+      "page_id": 5,
+      "open_tx": "0xf31ebf2a98e74ebe6b54e976909fb1c64dbd0e7bc7b1e7fcf5fafb57da5662a4",
+      "join_tx": "0xeef11f978a5b71901d5a71d73f83cc36360ef1c609137ea0d3fcb43a45c395b7",
+      "a_salt": "4923a443-fe9e-4b02-904d-a2ae65309126",
+      "a_seal_tx": "0x36ab3af7e10293eec72fa8a53c23df575623acb3f2721f00b810064eaf7809f2",
+      "b_salt": "0a0c7807-03ec-490c-9f12-891a2f8cfb13",
+      "b_seal_tx": "0xde0f59f210cba99c8e7e5a9d95e918aa67190c044b6a6b1aaea2687eb8d0f645",
+      "a_reveal_tx": "0xc01077643a932bde1f0f29fdb5656dbaa92dc5a13373c70074792b854f43b003",
+      "b_reveal_tx": "0xb8097ac7963479aaf61c726fc6da49e9ef99857e55469717a67adddb6cd5f944",
+      "check_tx": "0x929675a25bbc49dabb9f69c399ed97ff9b9312a974d665faa5dafa8cbf57c055",
+      "statuses": {
+        "amount": "ABSENT",
+        "deliverable": "DIFFER",
+        "deadline": "DIFFER",
+        "payment": "ABSENT",
+        "rights": "ABSENT",
+        "cancellation": "ABSENT"
+      },
+      "verdict": "DIFFERENT",
+      "count": 2,
+      "notes": {
+        "amount": "Neither account mentions price or quantity.",
+        "cancellation": "Neither account mentions cancellation policies.",
+        "deadline": "A specifies 'by Friday'; B specifies 'Oct 16, 2026'.",
+        "deliverable": "A specifies source files; B specifies PNG files.",
+        "payment": "Neither account mentions payment terms.",
+        "rights": "Neither account mentions ownership or usage rights."
+      },
+      "checked_by": "0xdB9074085C84721623b4fac1a158857A6e4B9fDB"
+    },
+    "5": {
+      "page_id": 6,
+      "open_tx": "0x501dbac9fbd8fc088e888d51af6ef5a6285ea9ed513d1eaab9a51854ea6f1f14",
+      "join_tx": "0xff35c040c7cff6694632da6bd3861a4367f6371a4d1a3d2a199fd59b2dfc20f8",
+      "a_salt": "aa1b7f3b-5f11-41c0-8082-be28d1bf5758",
+      "a_seal_tx": "0xaa0630ce214c7273161e604b242f0135c02899bd924eed6cf340e45cac33f07a",
+      "b_salt": "7ff25219-236e-4853-aae0-7e2fe2e23d1d",
+      "b_seal_tx": "0x4b3e790682d326ffcf0bc6eb6e570600992c3c99715297abfeac039c45979048",
+      "a_reveal_tx": "0xe9f5872782f3d1cdbd66f8dbdbd552ba059bebf301eaf8a460d5638900f2abac",
+      "b_reveal_tx": "0xf52e4afff2e26e2c84f2792a635a2270c4977d00b5d2c52aff1d6429172af64d",
+      "check_tx": "0x1ba0327bbf7a0de0cd222b39c6ee8f346d302b055dfee8f07970b47943ccc646",
+      "statuses": {
+        "amount": "ABSENT",
+        "deliverable": "MATCH",
+        "deadline": "ABSENT",
+        "payment": "ABSENT",
+        "rights": "ABSENT",
+        "cancellation": "ABSENT"
+      },
+      "verdict": "GAPS",
+      "count": 2,
+      "notes": {
+        "amount": "A: nothing; B: nothing",
+        "cancellation": "A: nothing; B: nothing",
+        "deadline": "A: nothing; B: nothing",
+        "deliverable": "A: Sera designs a logo for Kiln; B: I design a logo for Kiln",
+        "payment": "A: nothing; B: nothing",
+        "rights": "A: nothing; B: nothing"
+      },
+      "checked_by": "0xdB9074085C84721623b4fac1a158857A6e4B9fDB"
+    },
+    "6": {
+      "page_id": 7,
+      "open_tx": "0x0f432bdd505cad8857a82705f465b343f1a8b5968ec30e4cdfff616bf34cd20b",
+      "join_tx": "0xdc1814d9ecb13d80249a4374a4c6ade7a599783c25ef2521864385cb38eb7945",
+      "a_salt": "ea956d0a-4b6c-4c93-91b5-6c0436edf94b",
+      "a_seal_tx": "0xca645d046f9a4ade8f2c48a1371a23f74cf7620069f48a049b9448c6e3eeba07",
+      "b_salt": "c83f971a-91b6-412a-bd12-3214deb6a553",
+      "b_seal_tx": "0xf9978811e5c2700f6304c58e261a22f02f89f9e4028e34c276c54ed388ff3d08",
+      "a_reveal_tx": "0x562079faed85e25fca3d4b679e6e0b4d9dbefc2d7008638c610d71456c14a101",
+      "b_reveal_tx": "0x6b556a1063386c64ad523d40436247586547d7bf8121c12171a6d39f25eaf6eb",
+      "check_tx": "0xc8a72f601068d313bcae444983192c3217e803b25aaf2ec12d83a62555cf976d",
+      "statuses": {
+        "amount": "MATCH",
+        "deliverable": "MATCH",
+        "deadline": "MATCH",
+        "payment": "MATCH",
+        "rights": "ABSENT",
+        "cancellation": "ABSENT"
+      },
+      "verdict": "SAME_PAGE",
+      "count": 0,
+      "notes": {
+        "amount": "A: Kiln pays 600 USDC; B: for 600 USDC",
+        "cancellation": "neither mentions what if either backs out",
+        "deadline": "A/B: all three by 24 Oct 2026",
+        "deliverable": "A: three posts on X about Kiln launch; B: three tweets about Kiln's launch",
+        "payment": "A: all after last post published; B: on delivery once last live",
+        "rights": "neither mentions ownership or usage"
+      },
+      "checked_by": "0xdB9074085C84721623b4fac1a158857A6e4B9fDB"
+    },
+    "7": {
+      "page_id": 8,
+      "open_tx": "0xea65bf45bf172765edc623cf40ab3673142f4436d4f9c38d491d0d01c6331380",
+      "join_tx": "0x8c032304b11ce516e85109b2a18d7b1737e6bc79300d3a1f401fcea00ea6e25f",
+      "a_salt": "3543b8bb-08db-444c-9c3b-7c1076babbc6",
+      "a_seal_tx": "0x14163ed54a21e87fe3872b8fb20f3e0495e3fbc8f394441c2407378c90313cd0",
+      "b_salt": "4eb147c1-bb50-470c-bf39-7e4c7050c1f9",
+      "b_seal_tx": "0xbcd369ab3ca05f4b81131bc43055df6e3f655cac8e77bb3ec7a7a726d4293a57",
+      "a_reveal_tx": "0x3c9fa8b682d54decc2af5c4bc00fbcd6631383bbc60114a28780ce92980139f6",
+      "b_reveal_tx": "0x7ce25adc1a040d96ef5021e1191ccbe42aa4bb2a3842b826b44cd10776b26a4e",
+      "check_tx": "0x6e08152a41de05ae3fa48dd208e7abad8784a91c22b6899365323a7834bdc4b7",
+      "statuses": {
+        "amount": "MATCH",
+        "deliverable": "MATCH",
+        "deadline": "MATCH",
+        "payment": "DIFFER",
+        "rights": "ABSENT",
+        "cancellation": "ABSENT"
+      },
+      "verdict": "DIFFERENT",
+      "count": 1,
+      "notes": {
+        "amount": "Both say 600 USDC for 3 posts.",
+        "cancellation": "Neither account mentions cancellation terms.",
+        "deadline": "Both say all posts live by October 24, 2026.",
+        "deliverable": "Both say 3 posts/tweets on X about the Kiln launch.",
+        "payment": "Account A says 'payment as discussed' (which states nothing per rules); Account B says paid on delivery once the last post is live.",
+        "rights": "Neither account mentions ownership or usage rights."
+      },
+      "checked_by": "0xdB9074085C84721623b4fac1a158857A6e4B9fDB"
+    },
+    "8": {
+      "page_id": 9,
+      "open_tx": "0xf981b49b1d41bb6250ed69bb800e3fa4c1b25c790ea5f60d834c74aaab3b1fa6",
+      "join_tx": "0xe7c26b602f692bf13e365fbfea0592041eae72bc2f2f4eccba284ce4f5ba4b19",
+      "a_salt": "b79b88bc-b963-4758-8387-7d8ad533db8c",
+      "a_seal_tx": "0xd83296bda895ad98383629551f3b02610b2c74e2abcb99d3934602303a9a4ae9",
+      "b_salt": "bce2df90-ecab-4def-abe8-8739955e89a9",
+      "b_seal_tx": "0x99a62c369d570db157b61b93555fc3f76a441a87b83eed16e1c7b9c945437ad2",
+      "a_reveal_tx": "0x514ecdfea5514e9beba451fc6393130929596998b8084c93fbbb384befcaf84d",
+      "b_reveal_tx": "0x4a4f1cf8d97b66dc93d8d28954e2a07f749520c4178e3b9aff6012b72019dfda",
+      "check_tx": "0xfe50200c1713f5df86335565d60863ddbff267156c2b6bf28f7b52af85b2cde6",
+      "statuses": {
+        "amount": "DIFFER",
+        "deliverable": "MATCH",
+        "deadline": "MATCH",
+        "payment": "MATCH",
+        "rights": "ABSENT",
+        "cancellation": "ABSENT"
+      },
+      "verdict": "DIFFERENT",
+      "count": 1,
+      "notes": {
+        "amount": "A says 600 USDC; B says 700 USDC.",
+        "cancellation": "Neither account mentions cancellation terms.",
+        "deadline": "Both say all posts live by Oct 24, 2026.",
+        "deliverable": "Both say 3 posts/tweets on X about the Kiln launch.",
+        "payment": "Both say full payment after the last post is live.",
+        "rights": "Neither account mentions ownership or usage rights."
+      },
+      "checked_by": "0xdB9074085C84721623b4fac1a158857A6e4B9fDB"
+    },
+    "9": {
+      "page_id": 10,
+      "open_tx": "0xff7cab6960d358f1cef2a49d6dd1b1040583715fdd21a1425a96f3f0afac5bcf",
+      "join_tx": "0xf3527f8ab92c6a5f4c39c0107e69f4e4b187e8ad171adcc0275a764ac8c26664",
+      "a_salt": "689d2d4c-87b4-4d9d-85fa-fab487165983",
+      "a_seal_tx": "0xc98f999fc4c2e843ac7909d28283f5fa4b095017afc9d475d49fe0e12bb381b8",
+      "b_salt": "bd57644c-9771-440c-9446-7a91013b5e30",
+      "b_seal_tx": "0x866fdb4ecc475bb9c6e8130efcc3222fb6fd4cfee2ca0f0f12ccba01a1534d03",
+      "a_reveal_tx": "0x19e73241b50610178a4a85edab10e6a356a67e90c001ffe13b2899ad7a5b3851",
+      "b_reveal_tx": "0x7c53641535b14592b7c070d5896c915b13adbe76368f8dba207f8f9ddb51d5e2"
+    }
+  },
+  "attempts": [
+    {
+      "case": "1",
+      "attempt": 1,
+      "tx": "0x1d3028eb2e100a15560d1df8c6174cd55facfceccd846042482119e333695647",
+      "ok": true,
+      "returned": "SAME_PAGE",
+      "detail": ""
+    },
+    {
+      "case": "2",
+      "attempt": 1,
+      "tx": "0x1b78389b951deffb586b25d329ac99dbe9978f390446931d13785010ca68d88c",
+      "ok": true,
+      "returned": "DIFFERENT 1",
+      "detail": ""
+    },
+    {
+      "case": "3",
+      "attempt": 1,
+      "tx": "0x8dd768befbafd88b923162b331b202b3832bf2edc6c56133a84231c721addc9e",
+      "ok": true,
+      "returned": "DIFFERENT 1",
+      "detail": ""
+    },
+    {
+      "case": "4",
+      "attempt": 1,
+      "tx": "0x929675a25bbc49dabb9f69c399ed97ff9b9312a974d665faa5dafa8cbf57c055",
+      "ok": true,
+      "returned": "DIFFERENT 2",
+      "detail": ""
+    },
+    {
+      "case": "5",
+      "attempt": 1,
+      "tx": "0x1ba0327bbf7a0de0cd222b39c6ee8f346d302b055dfee8f07970b47943ccc646",
+      "ok": true,
+      "returned": "GAPS 2",
+      "detail": ""
+    },
+    {
+      "case": "6",
+      "attempt": 1,
+      "tx": "0xc8a72f601068d313bcae444983192c3217e803b25aaf2ec12d83a62555cf976d",
+      "ok": true,
+      "returned": "SAME_PAGE",
+      "detail": ""
+    },
+    {
+      "case": "7",
+      "attempt": 1,
+      "tx": "0x6e08152a41de05ae3fa48dd208e7abad8784a91c22b6899365323a7834bdc4b7",
+      "ok": true,
+      "returned": "DIFFERENT 1",
+      "detail": ""
+    },
+    {
+      "case": "8",
+      "attempt": 1,
+      "tx": "0xfe50200c1713f5df86335565d60863ddbff267156c2b6bf28f7b52af85b2cde6",
+      "ok": true,
+      "returned": "DIFFERENT 1",
+      "detail": ""
+    }
+  ],
+  "contract": "0x7c32684fC11c312685188C105D6F08c2B689b720",
+  "explorer": "https://explorer-studio-dev.genlayer.com"
+}

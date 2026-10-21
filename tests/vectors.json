@@ -1,0 +1,47 @@
+{
+  "about": "sha256 test vectors shared by contracts/samepage.py (hashlib) and the site (web/lib/hash.mjs, SubtleCrypto). A seal hashes the UTF-8 bytes of 'text|salt|address' with the address in lower case.",
+  "seals": [
+    {
+      "text": "Sera writes 3 posts on X about the Kiln launch, all live by Oct 24. Kiln pays 600 USDC, all of it after the last post.",
+      "salt": "7f3a0c55-2b1e-4d1a-9b7c-e91c00000001",
+      "address": "0x9C4e00000000000000000000000000000000b207",
+      "joined": "Sera writes 3 posts on X about the Kiln launch, all live by Oct 24. Kiln pays 600 USDC, all of it after the last post.|7f3a0c55-2b1e-4d1a-9b7c-e91c00000001|0x9c4e00000000000000000000000000000000b207",
+      "seal": "b982b46d4bc89cde7c707bf4c99db2aab6e43f52850e550b738fefd2a01ed2d7"
+    },
+    {
+      "text": "I post 3 times on X about Kiln's launch, by Oct 24, for 600 USDC,\nhalf before I start and half after. Kiln can repost.",
+      "salt": "0b9e5a52-77c4-4f0e-8d0e-6b1fc09e0002",
+      "address": "0xABCDEFabcdef0123456789abcdefABCDEF012345",
+      "joined": "I post 3 times on X about Kiln's launch, by Oct 24, for 600 USDC,\nhalf before I start and half after. Kiln can repost.|0b9e5a52-77c4-4f0e-8d0e-6b1fc09e0002|0xabcdefabcdef0123456789abcdefabcdef012345",
+      "seal": "2271012e2ac5d5f6fb225eafed0354148cc8c0d7a1e6aa0b8a455e5894b693ef"
+    },
+    {
+      "text": "سرا سه پست در X درباره‌ی لانچ Kiln می‌نویسد، همه تا ۲۴ اکتبر. ۶۰۰ USDC بعد از آخرین پست.",
+      "salt": "salt-0003-ffff",
+      "address": "0x1111111111111111111111111111111111111111",
+      "joined": "سرا سه پست در X درباره‌ی لانچ Kiln می‌نویسد، همه تا ۲۴ اکتبر. ۶۰۰ USDC بعد از آخرین پست.|salt-0003-ffff|0x1111111111111111111111111111111111111111",
+      "seal": "1ed080f0ef787d9c97d19aeacfb92a5c61fc6497e38edab3198cb85d6e31183f"
+    },
+    {
+      "text": "a text | with bars | in it",
+      "salt": "abcdefgh",
+      "address": "0x2222222222222222222222222222222222222222",
+      "joined": "a text | with bars | in it|abcdefgh|0x2222222222222222222222222222222222222222",
+      "seal": "b73bfe10cac1c0364471db3a024c1c356c621f7b8c21ec9b55d30b3c544d3d9c"
+    },
+    {
+      "text": "emoji 🎨 and 中文 and spaces   ",
+      "salt": "ABCdef-123",
+      "address": "0x3333333333333333333333333333333333333333",
+      "joined": "emoji 🎨 and 中文 and spaces   |ABCdef-123|0x3333333333333333333333333333333333333333",
+      "seal": "acc42b5b2c5e3b6cdbf41510c60c6ee6177188c7c8207dd93e5c7d70e9ee0eaf"
+    },
+    {
+      "text": "x",
+      "salt": "--------",
+      "address": "0x0000000000000000000000000000000000000001",
+      "joined": "x|--------|0x0000000000000000000000000000000000000001",
+      "seal": "bb9c38c721ee35ad4dd6404792c3adc8cd28bd73c02726c21d819bb0b9d4a6ed"
+    }
+  ]
+}

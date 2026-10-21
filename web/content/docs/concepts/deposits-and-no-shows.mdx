@@ -1,0 +1,31 @@
+---
+title: Deposits and no-shows
+description: The good-faith deposit, the windows, who may call no-show and where the deposit goes.
+---
+
+The opener sets one deposit, possibly zero, that both sides pay: the opener with `open_page`, the counterparty with
+`join`. It is a good-faith deposit, never the payment for the work.
+
+## Windows
+
+The opener sets one window, 6 to 96 hours, that applies to every step: joining, sealing, opening, checking and signing.
+Each step's window starts when the step begins, by chain time. The page shows how long is left.
+
+## No-show
+
+Once a step's window has closed, anyone may call `no_show`:
+
+| Step that lapsed | Who is absent | Where the deposits go |
+|---|---|---|
+| Join | the counterparty | the opener's deposit back to the opener (the counterparty never paid) |
+| Seal, open or sign, one side missed it | that side | both deposits to the other side |
+| Seal, open or sign, both missed it | both | each side gets its own back |
+| Check, no verdict in the window | nobody | both deposits back, closed as not agreed |
+
+The absent addresses are stored on the page, and the page shows the no-show dotted.
+
+## Where money moves
+
+`open_page` and `join` take deposits in. `check`, `sign` and `no_show` only credit balances inside the contract.
+`withdraw` is the only call that pays: a top-level transfer of the caller's own balance. On consensus v0.6 a transfer can
+only be funded at the root of the transaction that starts it, so judging never moves money.

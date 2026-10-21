@@ -1,0 +1,52 @@
+---
+title: Introduction
+description: Two accounts of one deal, checked before anyone signs. What Samepage does, who it is for, and where to start.
+---
+
+Samepage is a deal check on GenLayer. The two sides of a deal, a project and a creator, a client and a freelancer, two
+traders, each write the deal in their own words without seeing the other's. GenLayer validators compare the two accounts
+on six terms and say exactly where they match, where they differ and what neither mentions. Both sides fix the
+misunderstanding before the work starts, sign a record that holds both texts, and get back a good-faith deposit that a
+side who walks away loses to the other.
+
+## The problem it fixes
+
+Most crypto deals, a paid thread, a logo, a landing page, an OTC trade, an ambassador role, are agreed in a few DMs, and
+each side walks away with a different deal in their head. "3 posts" or "3 posts and a thread", "paid after" or "half
+upfront", "by Friday" or "next Friday". Nobody notices until the work is delivered, and then it is a fight.
+
+- **Nobody frames the deal.** There is no summary for one side to write and the other to skim. Both write their own
+  account, and the record holds both.
+- **Nobody copies.** Both accounts are sealed by hash until both are in, and a seal includes the writer's address, so a
+  seal copied from the other side can never be opened.
+- **Nobody picks the judge.** Either side could run a model on the two texts, then run it again until it agreed. On
+  GenLayer several validators compare the accounts the same way, and the result is a record neither side controlled.
+- **Nobody ghosts for free.** Every step has a window. A side that misses one loses its deposit to the other.
+
+## Open, seal, open, check, sign
+
+<Steps>
+  <Step>**Open.** One side opens a page with a title, the counterparty's address, a deposit and a window per step. The other joins with the same deposit.</Step>
+  <Step>**Seal.** Each side writes the deal in its own words and seals a hash of it.</Step>
+  <Step>**Open.** When both have sealed, both open their accounts, each checked against its seal.</Step>
+  <Step>**Check.** Validators compare the two accounts on six terms. The verdict follows in code.</Step>
+  <Step>**Sign.** On the same page both sign and both deposits come back. Otherwise each side rewrites once.</Step>
+</Steps>
+
+## Where to start
+
+<Cards>
+  <Card title="Quickstart: your first page" href="/docs/quickstart" />
+  <Card title="The six terms" href="/docs/concepts/the-six-terms" />
+  <Card title="The four results" href="/docs/concepts/the-four-results" />
+  <Card title="Contract reference" href="/docs/reference/contract" />
+</Cards>
+
+## What Samepage is not
+
+- **Not an escrow.** It holds a good-faith deposit, never the payment for the work.
+- **Not a lawyer.** It checks that two accounts agree, not that the deal is fair or legal.
+- **Not a dispute court.** It runs before the work. A dispute service can use the record afterwards.
+- **Not private.** Both accounts are public once opened, so it suits deals that can be public.
+
+Everything here runs on GenLayer Studio Next, chain 61997, with test GEN. See [Addresses and network](/docs/reference/addresses).

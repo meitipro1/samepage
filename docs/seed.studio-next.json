@@ -1,0 +1,43 @@
+{
+  "contract": "0x7c32684fC11c312685188C105D6F08c2B689b720",
+  "explorer": "https://explorer-studio-dev.genlayer.com",
+  "pages": {
+    "noshow": {
+      "id": 1,
+      "title": "Kiln logo, PNG and SVG",
+      "deposit": "5000000000000000000"
+    }
+  },
+  "steps": [
+    {
+      "at": "2026-10-21T09:58:00Z",
+      "what": "noshow: Kiln opens \"Kiln logo, PNG and SVG\" naming Sera",
+      "method": "open_page",
+      "tx": "0x921d933a8dbcc12335eee0d2d3049d5fa60169fe6e8bedc0208192b966f8384a",
+      "ok": true,
+      "returned": 1,
+      "refusal": "",
+      "detail": ""
+    },
+    {
+      "at": "2026-10-21T09:58:07Z",
+      "what": "page 1: Sera joins with the deposit",
+      "method": "join",
+      "tx": "0x8114eed26d6961fa8b210cbad153a5ecf192258be3b66ff4b9ab1540e78986fe",
+      "ok": true,
+      "returned": "SEAL",
+      "refusal": "",
+      "detail": ""
+    },
+    {
+      "at": "2026-10-21T09:58:16Z",
+      "what": "page 1: kiln seals",
+      "method": "seal",
+      "tx": "0x611e66d419a782d599b7ceaef3336222bbd3661f9a83fb15dc9c8d9ec73aeb2b",
+      "ok": true,
+      "returned": "SEAL",
+      "refusal": "",
+      "detail": ""
+    }
+  ]
+}

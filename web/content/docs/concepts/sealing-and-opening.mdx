@@ -1,0 +1,36 @@
+---
+title: Sealing and opening
+description: Why neither side can read, copy or adjust to the other's account, and what the ticket is.
+---
+
+Both sides write before either can read. That is the whole point: an account written after reading the other one is a
+reply, not an account.
+
+## The seal
+
+```text
+seal = sha256(text + "|" + salt + "|" + lower_case(address))
+```
+
+The site makes a fresh salt with `crypto.randomUUID()` and hashes your exact text, the salt and your address in the
+browser. Only the seal goes on chain. Each side seals once per round, and nobody can open before both have sealed.
+
+- **A copied seal can never be opened.** The address is inside the hash. If one side copies the other's seal, the copier
+  cannot produce text and salt that hash to it with their own address, so the open is refused and the copier misses the
+  opening window.
+- **Nothing to read early.** A hash of 1,200 characters and a 36 character salt gives nothing away.
+
+## The ticket
+
+Your ticket is the exact text and the salt. Without them your seal cannot be opened, and a side that cannot open misses
+the window and loses its deposit. The site saves the ticket in your browser before you sign and offers it as a download.
+Opening from another browser takes the downloaded file.
+
+## Opening
+
+When both have sealed, each side opens: the contract hashes the text and salt with the sender's address and stores the
+text only if it matches the seal. The text is stored exactly as sent, line breaks included. Once both are open, the page
+is ready to check, and both texts are public.
+
+See [Hashing, with test vectors](/docs/reference/hashing) for the bytes, and the vectors both the contract and the site
+are tested against.

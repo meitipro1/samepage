@@ -1,0 +1,31 @@
+---
+title: Signing an agreed record
+description: What a signature covers, when deposits come back, and how to share the record.
+---
+
+A round that comes back **Same page** moves the page to signing, with a fresh window. Each side presses **Sign the
+record** once. When both have signed the page is **Agreed**, and both deposits are credited back to their balances.
+
+## What you sign
+
+You sign the record: both full accounts of the round that was checked, and its six statuses. You do not sign the notes.
+The notes are one line per term from the leader validator, stored as a reading aid; they are never compared between
+validators and never part of the record, so a misleading note cannot become part of the deal.
+
+## If the other side does not sign
+
+The window is the page's window per step. If it closes with one signature, anyone may call no-show: the side that did not
+sign loses its deposit to the side that did. If neither signed, each gets their own back. See
+[Deposits and no-shows](/docs/concepts/deposits-and-no-shows).
+
+## The record page
+
+An agreed page has a record at `/p/<id>/record`: the six statuses, the verdict computed from them, both accounts with
+their seals, the times each was sealed, opened and signed, and the contract it was read from. Print it or save it as a
+PDF, or share the link. Anyone can read it without a wallet, and anyone can check it against the chain with `get_page`.
+
+## Withdrawing
+
+Signing, a closed round 2 and a no-show only move balances inside the contract. **Withdraw** on [My pages](/me) is the
+only call that pays: one top-level transfer of everything credited to you, on every page. The transfer settles at
+finality, a little after the transaction is accepted.

@@ -1,0 +1,143 @@
+---
+title: 'Quickstart: your first page'
+description: Open a page with your counterparty, seal your account and read the result, in about five minutes.
+---
+
+<Callout type="warn" title="Accounts are public once opened">
+  Never put anything in a deal you would not post. Until both sides have sealed only a hash is on chain; after both open,
+  both texts are public, next to the addresses that wrote them.
+</Callout>
+
+## 1. Open a page
+
+Go to [Open a page](/new). Give the deal a title, paste the counterparty's wallet address (the only account that can
+join), set a good-faith deposit that each side pays, possibly zero, and a window of 6 to 96 hours for each step. Press
+**Open the page**. The site walks you through connecting a wallet, switching to Studio Next (chain 61997) and getting free
+test GEN, then asks you to sign. Send the page's link to the other side.
+
+The counterparty opens the link and presses **Join**, sending the same deposit.
+
+## 2. Seal your account
+
+Each side writes the deal in **The deal, in your own words**: what is delivered, for how much, by when, how and when it
+is paid, who may use the result, and what happens if either side backs out. Any language, any order, at most 1,200
+characters. The panel beside it shows which terms your text seems to mention; that hint is worked out in your browser
+from your text alone, and the validators read both.
+
+Press **Seal my account**. The site saves your ticket, the exact text and a random salt, in this browser before you sign,
+and only `sha256("text|salt|address")` goes on chain. **Download my ticket** keeps a copy.
+
+## 3. Open and check
+
+When both have sealed, each side presses **Open my account**. The contract hashes the text and salt with your address and
+refuses anything that does not match your seal. Once both are open, anyone presses **Check round 1**. The page says
+*Validators are comparing the two accounts on six terms* with the transaction link while it waits, a minute or two.
+
+## 4. Read the result
+
+The result names the verdict and shows the six terms, differences first. **Same page** goes to signing. **Different · N**
+or **Gaps · N** opens round 2: talk it through, then each side writes and seals again. See [The four results](/docs/concepts/the-four-results).
+
+## 5. Sign
+
+On the same page both sides press **Sign the record**. Both signatures make it agreed, and both deposits are credited
+back. **Withdraw** on [My pages](/me) pays your balance out. See [Signing an agreed record](/docs/signing-a-record).
+
+## From code
+
+The same steps with genlayer-js and the site's own seal function, run against the deployed contract:
+
+{/* include: web/examples/open-and-seal.mjs */}
+```js title="web/examples/open-and-seal.mjs"
+/**
+ * Open a page, join it, and seal and open both accounts, with genlayer-js and
+ * the site's own seal function. Two local test accounts sign through
+ * stand-in wallets (scripts/standin-wallet.mjs); a browser wallet works the
+ * same way.
+ *
+ *   node examples/open-and-seal.mjs <opener account> <counterparty account>
+ */
+import crypto from 'node:crypto';
+
+import { parseEther } from 'viem';
+
+import { CONTRACT, outcomeOf, submit, waitDecided, walletClient } from '../lib/genlayer-core.mjs';
+import { sealOf } from '../lib/hash.mjs';
+import { ensureAccount, standinWallet } from '../scripts/standin-wallet.mjs';
+
+const [openerName = 'example_opener', counterpartyName = 'example_counterparty'] = process.argv.slice(2);
+ensureAccount(openerName);
+ensureAccount(counterpartyName);
+const opener = standinWallet(openerName);
+const counterparty = standinWallet(counterpartyName);
+
+async function send(wallet, method, args, value = 0n) {
+  const client = walletClient(wallet.address, wallet.provider);
+  const hash = await submit(client, { method, args, value, sender: wallet.address });
+  const outcome = outcomeOf(await waitDecided(client, hash, method));
+  if (!outcome.ok) throw new Error(`${method} refused: ${outcome.refusal}`);
+  console.log(`${method} -> ${JSON.stringify(outcome.returned)}  ${hash}`);
+  return outcome.returned;
+}
+
+// 1. Open a page naming the counterparty, with a 20 GEN deposit and 48 hours per step.
+const deposit = parseEther('20');
+const pageId = Number(await send(opener, 'open_page', ['Kiln launch posts', counterparty.address, deposit, 48n], deposit));
+
+// 2. The counterparty joins with the same deposit.
+await send(counterparty, 'join', [pageId], deposit);
+
+// 3. Each side seals sha256("text|salt|address"). Keep the text and salt: they open the seal.
+const accounts = {
+  opener: 'Sera writes 3 posts on X about the Kiln launch, all live by Oct 24, 2026. Kiln pays 600 USDC after the last post.',
+  counterparty: 'I post three times on X about Kiln’s launch by October 24, 2026, for 600 USDC, paid once the last post is live.',
+};
+const salts = { opener: crypto.randomUUID(), counterparty: crypto.randomUUID() };
+await send(opener, 'seal', [pageId, await sealOf(accounts.opener, salts.opener, opener.address)]);
+await send(counterparty, 'seal', [pageId, await sealOf(accounts.counterparty, salts.counterparty, counterparty.address)]);
+
+// 4. Once both have sealed, each opens its account; the contract checks it against the seal.
+await send(opener, 'reveal', [pageId, accounts.opener, salts.opener]);
+await send(counterparty, 'reveal', [pageId, accounts.counterparty, salts.counterparty]);
+
+// 5. Anyone may check: validators compare the two accounts on six terms.
+console.log(`page ${pageId} is ready to check on ${CONTRACT}`);
+```
+{/* end include */}
+
+And a read with genlayer-py:
+
+{/* include: web/examples/read_page.py */}
+```python title="web/examples/read_page.py"
+"""
+Read a page from the deployed contract with genlayer-py 0.19.0rc2.
+
+    python web/examples/read_page.py 2
+
+Reads are free, but genlayer-py reads through an account, so a throwaway one
+is made here. It is never funded and never signs.
+"""
+
+import json
+import pathlib
+import sys
+
+from genlayer_py import create_account, create_client
+from genlayer_py.chains import studio_devnet
+
+deployment = json.loads((pathlib.Path(__file__).resolve().parent.parent / "lib" / "deployment.json").read_text())
+studio_devnet.rpc_urls = {"default": {"http": [deployment["rpc"]]}}
+client = create_client(chain=studio_devnet, account=create_account())
+
+page_id = int(sys.argv[1]) if len(sys.argv) > 1 else 1
+page = json.loads(client.read_contract(address=deployment["samepage"], function_name="get_page", args=[page_id]))
+if not page["found"]:
+    raise SystemExit(f"no page {page_id}")
+print(f"page {page['id']}: {page['title']} ({page['status']}, step {page['step']}, round {page['round']})")
+for r in page["rounds"]:
+    if r["verdict"]:
+        print(f"  round {r['number']}: {r['verdict']} {r['count']}")
+        for term, status in r["statuses"].items():
+            print(f"    {term:13} {status:7} {r['notes'].get(term, '')}")
+```
+{/* end include */}
