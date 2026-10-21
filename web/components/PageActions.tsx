@@ -11,7 +11,7 @@ import type { PageFull } from '@/lib/types';
 import { refreshReads, send, type TxState } from '@/lib/write';
 
 import { TxStatus } from './TxStatus';
-import { WalletGate, useWallet } from './Wallet';
+import { FEE_ROOM, WalletGate, useWallet } from './Wallet';
 
 /**
  * Everything a visitor can do on one page, by step: join, write and seal, open,
@@ -144,7 +144,7 @@ function JoinStep({ p, side, busy, write }: { p: PageFull; side: string; busy: b
           Join with the same {gen(p.deposit)} deposit. Then you write the deal in your own words; nobody sees it until both of you
           have sealed.
         </p>
-        <WalletGate action="join">
+        <WalletGate action="join" need={BigInt(p.deposit) + FEE_ROOM}>
           <button className="c-btn solid" disabled={busy} onClick={() => write('join', [p.id], BigInt(p.deposit))}>
             Join{BigInt(p.deposit) > 0n ? ` with ${gen(p.deposit)}` : ''}
           </button>

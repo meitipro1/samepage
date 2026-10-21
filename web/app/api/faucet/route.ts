@@ -14,8 +14,13 @@ import { RPC } from '@/lib/genlayer-core.mjs';
  * Rate limited per IP and per address, in memory. No key is involved.
  */
 
-const AMOUNT = 20n * 10n ** 18n;
-const ENOUGH = 10n * 10n ** 18n;
+/*
+ * Enough for a 20 GEN deposit and every write after it. Each write holds a fee
+ * deposit until it finalizes, so a wallet funded with exactly its deposit
+ * opens a page and is then left with nothing to seal with.
+ */
+const AMOUNT = 100n * 10n ** 18n;
+const ENOUGH = 50n * 10n ** 18n;
 const WINDOW_MS = 10 * 60 * 1000;
 const PER_IP = 3;
 const seenIp = new Map<string, number[]>();

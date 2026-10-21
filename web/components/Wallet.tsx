@@ -28,6 +28,8 @@ const Ctx = createContext<WalletState | null>(null);
 
 /** Below this a write and its fee deposit may not fit. */
 const LOW = 2n * 10n ** 18n;
+/** Room for the fee deposits of the writes after a deposit: each is held until its transaction finalizes. */
+export const FEE_ROOM = 2n * 10n ** 18n;
 
 export function WalletProvider({ children }: { children: React.ReactNode }) {
   const [account, setAccount] = useState('');
@@ -169,10 +171,12 @@ export function WalletButton() {
  * Switch network (adding chain 61997 if the wallet lacks it) and Get test GEN,
  * and only then shows the children.
  */
-export function WalletGate({ children, action = 'continue' }: { children: React.ReactNode; action?: string }) {
+export function WalletGate({ children, action = 'continue', need = 0n }: { children: React.ReactNode; action?: string; need?: bigint }) {
   const w = useWallet();
+  const lacking = w.step === 'ready' && need > 0n && w.balance !== null && w.balance < need;
+  const step = lacking ? 'fund' : w.step;
   let body: React.ReactNode = null;
-  if (w.step === 'no-wallet') {
+  if (step === 'no-wallet') {
     body = (
       <>
         <p className="c-muted text-[14px]">A wallet is needed to {action}. Reading works without one.</p>
@@ -181,7 +185,7 @@ export function WalletGate({ children, action = 'continue' }: { children: React.
         </a>
       </>
     );
-  } else if (w.step === 'connect') {
+  } else if (step === 'connect') {
     body = (
       <>
         <p className="c-muted text-[14px]">Step 1 of 3. Connect a wallet to {action}.</p>
@@ -190,7 +194,7 @@ export function WalletGate({ children, action = 'continue' }: { children: React.
         </button>
       </>
     );
-  } else if (w.step === 'switch') {
+  } else if (step === 'switch') {
     body = (
       <>
         <p className="c-muted text-[14px]">Step 2 of 3. Samepage runs on GenLayer Studio Next, chain 61997.</p>
@@ -199,12 +203,13 @@ export function WalletGate({ children, action = 'continue' }: { children: React.
         </button>
       </>
     );
-  } else if (w.step === 'fund') {
+  } else if (step === 'fund') {
     body = (
       <>
         <p className="c-muted text-[14px]">
-          Step 3 of 3. This account holds {w.balance !== null ? gen(w.balance) : 'no GEN'}. Every write carries a small fee
-          deposit, and test GEN is free.
+          Step 3 of 3. This account holds {w.balance !== null ? gen(w.balance) : 'no GEN'}
+          {lacking ? `, and this needs ${gen(need)}: the deposit plus room for the fee deposits of the steps after it` : ''}. Every
+          write carries a small fee deposit, and test GEN is free.
         </p>
         <button className="c-btn solid" onClick={w.faucet} disabled={w.busy === 'faucet'}>
           {w.busy === 'faucet' ? 'Asking the faucet…' : 'Get test GEN'}

@@ -6,6 +6,21 @@
       "id": 1,
       "title": "Kiln logo, PNG and SVG",
       "deposit": "5000000000000000000"
+    },
+    "story": {
+      "id": 14,
+      "title": "Kiln launch posts",
+      "deposit": "20000000000000000000"
+    },
+    "refusals": {
+      "id": 15,
+      "title": "Kiln thread, refusals on record",
+      "deposit": "5000000000000000000"
+    },
+    "open": {
+      "id": 16,
+      "title": "Kiln ambassador, November",
+      "deposit": "20000000000000000000"
     }
   },
   "steps": [
@@ -34,6 +49,346 @@
       "what": "page 1: kiln seals",
       "method": "seal",
       "tx": "0x611e66d419a782d599b7ceaef3336222bbd3661f9a83fb15dc9c8d9ec73aeb2b",
+      "ok": true,
+      "returned": "SEAL",
+      "refusal": "",
+      "detail": ""
+    },
+    {
+      "at": "2026-10-21T10:21:20Z",
+      "what": "story: Kiln opens \"Kiln launch posts\" naming Sera",
+      "method": "open_page",
+      "tx": "0xe8518b433ee3d40878ad70d79579fc9526f6b77d5a52e944f3f325697d673df3",
+      "ok": true,
+      "returned": 14,
+      "refusal": "",
+      "detail": ""
+    },
+    {
+      "at": "2026-10-21T10:21:28Z",
+      "what": "page 14: Sera joins with the 20 GEN deposit",
+      "method": "join",
+      "tx": "0x5b82c3c29675115b14b42b4bd66237415b84ba259523cd58f6a0e01d69cbb5f1",
+      "ok": true,
+      "returned": "SEAL",
+      "refusal": "",
+      "detail": ""
+    },
+    {
+      "at": "2026-10-21T10:21:37Z",
+      "what": "page 14: kiln_r1 seals",
+      "method": "seal",
+      "tx": "0xb879335e035283195169e1e9d20ca9b5b3bb6035031687df03bb38031c395825",
+      "ok": true,
+      "returned": "SEAL",
+      "refusal": "",
+      "detail": ""
+    },
+    {
+      "at": "2026-10-21T10:21:45Z",
+      "what": "page 14: sera_r1 seals",
+      "method": "seal",
+      "tx": "0x2fbcd355831cc14e199cd579b8ed772d7073288b2f9f6f69a6ca65933248913b",
+      "ok": true,
+      "returned": "REVEAL",
+      "refusal": "",
+      "detail": ""
+    },
+    {
+      "at": "2026-10-21T10:21:53Z",
+      "what": "page 14: kiln_r1 opens",
+      "method": "reveal",
+      "tx": "0xc11d44074e89d65264122ac4df3c69c9c4c1e8d60dec59b63ed0d7c1f5cec2f3",
+      "ok": true,
+      "returned": "REVEAL",
+      "refusal": "",
+      "detail": ""
+    },
+    {
+      "at": "2026-10-21T10:22:02Z",
+      "what": "page 14: sera_r1 opens",
+      "method": "reveal",
+      "tx": "0x38d93c81109bdddcb0d3062ad9fe4ef87d75dca5edb6ef135c3ea9642d9bc981",
+      "ok": true,
+      "returned": "CHECK",
+      "refusal": "",
+      "detail": ""
+    },
+    {
+      "at": "2026-10-21T10:22:28Z",
+      "what": "page 14: round 1 check, attempt 1",
+      "method": "check",
+      "tx": "0x3063fcf4a671cc25a4c3f43d2173e5003e09289ec2470a3782f3eb995fce7d47",
+      "ok": true,
+      "returned": "DIFFERENT 2",
+      "refusal": "",
+      "detail": ""
+    },
+    {
+      "at": "2026-10-21T10:22:36Z",
+      "what": "page 14: kiln_r2 seals",
+      "method": "seal",
+      "tx": "0x6d6ef632d230662bcf4e26dcb69952882b1c1d2b1379ef0f8479ce5dff10d1ab",
+      "ok": true,
+      "returned": "SEAL",
+      "refusal": "",
+      "detail": ""
+    },
+    {
+      "at": "2026-10-21T10:22:45Z",
+      "what": "page 14: sera_r2 seals",
+      "method": "seal",
+      "tx": "0x85c7dc2f5b176122b0e1d00be04044dc1fa4ae0afd56c0701b71b1c35728167c",
+      "ok": true,
+      "returned": "REVEAL",
+      "refusal": "",
+      "detail": ""
+    },
+    {
+      "at": "2026-10-21T10:22:53Z",
+      "what": "page 14: kiln_r2 opens",
+      "method": "reveal",
+      "tx": "0x25b7c0b6ca43aa3015bacedcca84e7a867187588809517de627a592d82cc8280",
+      "ok": true,
+      "returned": "REVEAL",
+      "refusal": "",
+      "detail": ""
+    },
+    {
+      "at": "2026-10-21T10:23:02Z",
+      "what": "page 14: sera_r2 opens",
+      "method": "reveal",
+      "tx": "0x8d63fa72839d47979d4ddad89971b3f57681310dc59c76c4fe42d44543616497",
+      "ok": true,
+      "returned": "CHECK",
+      "refusal": "",
+      "detail": ""
+    },
+    {
+      "at": "2026-10-21T10:23:27Z",
+      "what": "page 14: round 2 check, attempt 1",
+      "method": "check",
+      "tx": "0x622ed27fd0ba7806066f47ecfc826eca4581bb8d260133e22d7e9feea5762486",
+      "ok": true,
+      "returned": "SAME_PAGE",
+      "refusal": "",
+      "detail": ""
+    },
+    {
+      "at": "2026-10-21T10:23:36Z",
+      "what": "page 14: Kiln signs",
+      "method": "sign",
+      "tx": "0xd2027d87850c8aeaa9bbc32ddf2738c1a47c724524659ae0d8fdb2ac4de814ec",
+      "ok": true,
+      "returned": "SIGN",
+      "refusal": "",
+      "detail": ""
+    },
+    {
+      "at": "2026-10-21T10:23:50Z",
+      "what": "page 14: Sera signs",
+      "method": "sign",
+      "tx": "0xe5ab82f3fe22cd2689329bada28c062e026a6ea5a0982a92c9d491656aac34d7",
+      "ok": true,
+      "returned": "AGREED",
+      "refusal": "",
+      "detail": ""
+    },
+    {
+      "at": "2026-10-21T10:24:17Z",
+      "what": "refusals: Kiln opens \"Kiln thread, refusals on record\" naming Sera",
+      "method": "open_page",
+      "tx": "0xbd226fa1e89bfcfba7b4426d79a0cb267d37d4466e08e07c4f151a2f6fd29c47",
+      "ok": true,
+      "returned": 15,
+      "refusal": "",
+      "detail": ""
+    },
+    {
+      "at": "2026-10-21T10:24:25Z",
+      "what": "page 15: a stranger tries to join",
+      "method": "join",
+      "tx": "0x224f54bf16b8e45b83649f162125c76db35070a31fce7dd3cf2fdbbdd0c9e6b6",
+      "ok": false,
+      "returned": null,
+      "refusal": "[EXPECTED] only the counterparty named on this page may join it",
+      "detail": "status=ACCEPTED execution=FINISHED_WITH_ERROR [EXPECTED] only the counterparty named on this page may join it"
+    },
+    {
+      "at": "2026-10-21T10:24:34Z",
+      "what": "page 15: Sera joins with the wrong deposit",
+      "method": "join",
+      "tx": "0x3aa910a0d473eceb908f81b1328ab9528635c83889f65dce5e7d88e0720d01fc",
+      "ok": false,
+      "returned": null,
+      "refusal": "[EXPECTED] send exactly the deposit, 5000000000000000000 wei",
+      "detail": "status=ACCEPTED execution=FINISHED_WITH_ERROR [EXPECTED] send exactly the deposit, 5000000000000000000 wei"
+    },
+    {
+      "at": "2026-10-21T10:24:43Z",
+      "what": "page 15: Sera joins",
+      "method": "join",
+      "tx": "0x6cef06f1d0960c9ee6598ad19fc497a63117902e0f6c0772cd49090a154a6a66",
+      "ok": true,
+      "returned": "SEAL",
+      "refusal": "",
+      "detail": ""
+    },
+    {
+      "at": "2026-10-21T10:24:52Z",
+      "what": "page 15: kiln seals",
+      "method": "seal",
+      "tx": "0xb639c2970abd2078fe0b2e9935ced11d8463f5402ae38c9ffbdf00052dac6c5e",
+      "ok": true,
+      "returned": "SEAL",
+      "refusal": "",
+      "detail": ""
+    },
+    {
+      "at": "2026-10-21T10:24:59Z",
+      "what": "page 15: Kiln tries to open before Sera has sealed",
+      "method": "reveal",
+      "tx": "0x5a9761e0adaebe50738d76dce59de2c4d8c9807f3a8667a200404347d126845d",
+      "ok": false,
+      "returned": null,
+      "refusal": "[EXPECTED] accounts open only after both sides have sealed",
+      "detail": "status=ACCEPTED execution=FINISHED_WITH_ERROR [EXPECTED] accounts open only after both sides have sealed"
+    },
+    {
+      "at": "2026-10-21T10:25:08Z",
+      "what": "page 15: Sera seals a copy of Kiln's seal",
+      "method": "seal",
+      "tx": "0x107d414c43c16ddf9beb07da49856039649c8569a0edd2a50f0743ee61377616",
+      "ok": true,
+      "returned": "REVEAL",
+      "refusal": "",
+      "detail": ""
+    },
+    {
+      "at": "2026-10-21T10:25:16Z",
+      "what": "page 15: Sera tries to open Kiln's text with Kiln's salt",
+      "method": "reveal",
+      "tx": "0xcd03a29ecaa992b21464b0a0d9d7214667927750135f421ec4b4e2552c0bcb49",
+      "ok": false,
+      "returned": null,
+      "refusal": "[EXPECTED] this text and salt do not match this side's seal",
+      "detail": "status=ACCEPTED execution=FINISHED_WITH_ERROR [EXPECTED] this text and salt do not match this side's seal"
+    },
+    {
+      "at": "2026-10-21T10:25:24Z",
+      "what": "page 15: kiln opens",
+      "method": "reveal",
+      "tx": "0xccf79e0e0a5c5e699f00f3accf54a5e99e0f4f09496b6779dcd56238940607cf",
+      "ok": true,
+      "returned": "REVEAL",
+      "refusal": "",
+      "detail": ""
+    },
+    {
+      "at": "2026-10-21T10:25:33Z",
+      "what": "page 15: a stranger tries to sign",
+      "method": "sign",
+      "tx": "0x47468b78c74577da29723abf1ff626237aeb75272cf3b50afebc512f7595eb97",
+      "ok": false,
+      "returned": null,
+      "refusal": "[EXPECTED] only the two sides of this page may do that",
+      "detail": "status=ACCEPTED execution=FINISHED_WITH_ERROR [EXPECTED] only the two sides of this page may do that"
+    },
+    {
+      "at": "2026-10-21T10:25:47Z",
+      "what": "page 15: a stranger tries no_show before the window closes",
+      "method": "no_show",
+      "tx": "0xb4997462d152b38202ab8c8bdc9fbea94f366cc1049d234d07170a25ea248c31",
+      "ok": false,
+      "returned": null,
+      "refusal": "[EXPECTED] the window for this step is still open",
+      "detail": "status=ACCEPTED execution=FINISHED_WITH_ERROR [EXPECTED] the window for this step is still open"
+    },
+    {
+      "at": "2026-10-21T10:25:55Z",
+      "what": "page 15: a stranger tries to withdraw",
+      "method": "withdraw",
+      "tx": "0x56f5380b9223d0c15df66489c8ffb2922589574dad12918bfe1819438184340f",
+      "ok": false,
+      "returned": null,
+      "refusal": "[EXPECTED] nothing to withdraw for this address",
+      "detail": "status=ACCEPTED execution=FINISHED_WITH_ERROR [EXPECTED] nothing to withdraw for this address"
+    },
+    {
+      "at": "2026-10-21T10:26:08Z",
+      "what": "open: Kiln opens \"Kiln ambassador, November\" naming Sera",
+      "method": "open_page",
+      "tx": "0x46d78d442e1f2ae5fe03b45db9f621c743fa28e30dc08e0f3308d5d51cdf659d",
+      "ok": true,
+      "returned": 16,
+      "refusal": "",
+      "detail": ""
+    },
+    {
+      "at": "2026-10-21T10:26:22Z",
+      "what": "page 16: Sera joins",
+      "method": "join",
+      "tx": "0x667a11eb431e4b09246a58930ab0aa6cabba95458bd22c377b1d1f4589c21fa5",
+      "ok": true,
+      "returned": "SEAL",
+      "refusal": "",
+      "detail": ""
+    },
+    {
+      "at": "2026-10-21T10:26:30Z",
+      "what": "page 16: kiln_r1 seals",
+      "method": "seal",
+      "tx": "0xc646d72317847ff069867682298e75b16e568ad90fa84242cce304675dc2900c",
+      "ok": true,
+      "returned": "SEAL",
+      "refusal": "",
+      "detail": ""
+    },
+    {
+      "at": "2026-10-21T10:26:38Z",
+      "what": "page 16: sera_r1 seals",
+      "method": "seal",
+      "tx": "0x180501f866112a907f1db7401302a6ef36ad479d37576e22268c7950f3d61b6d",
+      "ok": true,
+      "returned": "REVEAL",
+      "refusal": "",
+      "detail": ""
+    },
+    {
+      "at": "2026-10-21T10:26:46Z",
+      "what": "page 16: kiln_r1 opens",
+      "method": "reveal",
+      "tx": "0x6d7e9ece1b0a906d9007f72da642f18e024bb84ac34f1230effe229d41cb4928",
+      "ok": true,
+      "returned": "REVEAL",
+      "refusal": "",
+      "detail": ""
+    },
+    {
+      "at": "2026-10-21T10:26:54Z",
+      "what": "page 16: sera_r1 opens",
+      "method": "reveal",
+      "tx": "0xa9c18677b56a1e752e98a8af626fdd377eb4a9a27a071da507233fa59237a00c",
+      "ok": true,
+      "returned": "CHECK",
+      "refusal": "",
+      "detail": ""
+    },
+    {
+      "at": "2026-10-21T10:27:29Z",
+      "what": "page 16: round 1 check, attempt 1",
+      "method": "check",
+      "tx": "0xbd6606f9c791c75a9b2dee54e8395fcf8d9cc3b67c594417f5a561292e85c63d",
+      "ok": true,
+      "returned": "DIFFERENT 2",
+      "refusal": "",
+      "detail": ""
+    },
+    {
+      "at": "2026-10-21T10:27:41Z",
+      "what": "page 16: kiln_r2 seals",
+      "method": "seal",
+      "tx": "0x18c9680ce79819a6f988f10d8a9aac26b42dff9f934bdfea5073b435029e203d",
       "ok": true,
       "returned": "SEAL",
       "refusal": "",

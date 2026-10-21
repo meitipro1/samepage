@@ -10,7 +10,7 @@ import { TEMPLATES, template } from '@/lib/templates';
 import { refreshReads, send, type TxState } from '@/lib/write';
 
 import { TxStatus } from './TxStatus';
-import { WalletGate, useWallet } from './Wallet';
+import { FEE_ROOM, WalletGate, useWallet } from './Wallet';
 
 const ADDRESS = /^0x[0-9a-fA-F]{40}$/;
 
@@ -131,7 +131,7 @@ export function OpenForm() {
           You send the deposit now. It comes back when both sign, or when two rounds still differ. A side that misses a window
           to join, seal, open or sign loses its deposit to the other.
         </div>
-        <WalletGate action="open a page">
+        <WalletGate action="open a page" need={(wei ?? 0n) + FEE_ROOM}>
           <div className="flex flex-col items-start gap-3">
             <button className="c-btn solid" disabled={!!problem || tx.phase === 'signing' || tx.phase === 'deciding'} onClick={submit}>
               Open the page{wei !== null && wei > 0n ? ` with ${gen(wei)}` : ''}

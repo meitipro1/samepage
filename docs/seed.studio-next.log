@@ -1,3 +1,37 @@
 2026-10-21T09:58:00Z noshow: Kiln opens "Kiln logo, PNG and SVG" naming Sera: ok 1  https://explorer-studio-dev.genlayer.com/tx/0x921d933a8dbcc12335eee0d2d3049d5fa60169fe6e8bedc0208192b966f8384a
 2026-10-21T09:58:07Z page 1: Sera joins with the deposit: ok "SEAL"  https://explorer-studio-dev.genlayer.com/tx/0x8114eed26d6961fa8b210cbad153a5ecf192258be3b66ff4b9ab1540e78986fe
 2026-10-21T09:58:16Z page 1: kiln seals: ok "SEAL"  https://explorer-studio-dev.genlayer.com/tx/0x611e66d419a782d599b7ceaef3336222bbd3661f9a83fb15dc9c8d9ec73aeb2b
+2026-10-21T10:21:20Z story: Kiln opens "Kiln launch posts" naming Sera: ok 14  https://explorer-studio-dev.genlayer.com/tx/0xe8518b433ee3d40878ad70d79579fc9526f6b77d5a52e944f3f325697d673df3
+2026-10-21T10:21:28Z page 14: Sera joins with the 20 GEN deposit: ok "SEAL"  https://explorer-studio-dev.genlayer.com/tx/0x5b82c3c29675115b14b42b4bd66237415b84ba259523cd58f6a0e01d69cbb5f1
+2026-10-21T10:21:37Z page 14: kiln_r1 seals: ok "SEAL"  https://explorer-studio-dev.genlayer.com/tx/0xb879335e035283195169e1e9d20ca9b5b3bb6035031687df03bb38031c395825
+2026-10-21T10:21:45Z page 14: sera_r1 seals: ok "REVEAL"  https://explorer-studio-dev.genlayer.com/tx/0x2fbcd355831cc14e199cd579b8ed772d7073288b2f9f6f69a6ca65933248913b
+2026-10-21T10:21:53Z page 14: kiln_r1 opens: ok "REVEAL"  https://explorer-studio-dev.genlayer.com/tx/0xc11d44074e89d65264122ac4df3c69c9c4c1e8d60dec59b63ed0d7c1f5cec2f3
+2026-10-21T10:22:02Z page 14: sera_r1 opens: ok "CHECK"  https://explorer-studio-dev.genlayer.com/tx/0x38d93c81109bdddcb0d3062ad9fe4ef87d75dca5edb6ef135c3ea9642d9bc981
+2026-10-21T10:22:28Z page 14: round 1 check, attempt 1: ok "DIFFERENT 2"  https://explorer-studio-dev.genlayer.com/tx/0x3063fcf4a671cc25a4c3f43d2173e5003e09289ec2470a3782f3eb995fce7d47
+2026-10-21T10:22:36Z page 14: kiln_r2 seals: ok "SEAL"  https://explorer-studio-dev.genlayer.com/tx/0x6d6ef632d230662bcf4e26dcb69952882b1c1d2b1379ef0f8479ce5dff10d1ab
+2026-10-21T10:22:45Z page 14: sera_r2 seals: ok "REVEAL"  https://explorer-studio-dev.genlayer.com/tx/0x85c7dc2f5b176122b0e1d00be04044dc1fa4ae0afd56c0701b71b1c35728167c
+2026-10-21T10:22:53Z page 14: kiln_r2 opens: ok "REVEAL"  https://explorer-studio-dev.genlayer.com/tx/0x25b7c0b6ca43aa3015bacedcca84e7a867187588809517de627a592d82cc8280
+2026-10-21T10:23:02Z page 14: sera_r2 opens: ok "CHECK"  https://explorer-studio-dev.genlayer.com/tx/0x8d63fa72839d47979d4ddad89971b3f57681310dc59c76c4fe42d44543616497
+2026-10-21T10:23:27Z page 14: round 2 check, attempt 1: ok "SAME_PAGE"  https://explorer-studio-dev.genlayer.com/tx/0x622ed27fd0ba7806066f47ecfc826eca4581bb8d260133e22d7e9feea5762486
+2026-10-21T10:23:36Z page 14: Kiln signs: ok "SIGN"  https://explorer-studio-dev.genlayer.com/tx/0xd2027d87850c8aeaa9bbc32ddf2738c1a47c724524659ae0d8fdb2ac4de814ec
+2026-10-21T10:23:50Z page 14: Sera signs: ok "AGREED"  https://explorer-studio-dev.genlayer.com/tx/0xe5ab82f3fe22cd2689329bada28c062e026a6ea5a0982a92c9d491656aac34d7
+2026-10-21T10:24:17Z refusals: Kiln opens "Kiln thread, refusals on record" naming Sera: ok 15  https://explorer-studio-dev.genlayer.com/tx/0xbd226fa1e89bfcfba7b4426d79a0cb267d37d4466e08e07c4f151a2f6fd29c47
+2026-10-21T10:24:25Z page 15: a stranger tries to join: refused [EXPECTED] only the counterparty named on this page may join it  https://explorer-studio-dev.genlayer.com/tx/0x224f54bf16b8e45b83649f162125c76db35070a31fce7dd3cf2fdbbdd0c9e6b6
+2026-10-21T10:24:34Z page 15: Sera joins with the wrong deposit: refused [EXPECTED] send exactly the deposit, 5000000000000000000 wei  https://explorer-studio-dev.genlayer.com/tx/0x3aa910a0d473eceb908f81b1328ab9528635c83889f65dce5e7d88e0720d01fc
+2026-10-21T10:24:43Z page 15: Sera joins: ok "SEAL"  https://explorer-studio-dev.genlayer.com/tx/0x6cef06f1d0960c9ee6598ad19fc497a63117902e0f6c0772cd49090a154a6a66
+2026-10-21T10:24:52Z page 15: kiln seals: ok "SEAL"  https://explorer-studio-dev.genlayer.com/tx/0xb639c2970abd2078fe0b2e9935ced11d8463f5402ae38c9ffbdf00052dac6c5e
+2026-10-21T10:24:59Z page 15: Kiln tries to open before Sera has sealed: refused [EXPECTED] accounts open only after both sides have sealed  https://explorer-studio-dev.genlayer.com/tx/0x5a9761e0adaebe50738d76dce59de2c4d8c9807f3a8667a200404347d126845d
+2026-10-21T10:25:08Z page 15: Sera seals a copy of Kiln's seal: ok "REVEAL"  https://explorer-studio-dev.genlayer.com/tx/0x107d414c43c16ddf9beb07da49856039649c8569a0edd2a50f0743ee61377616
+2026-10-21T10:25:16Z page 15: Sera tries to open Kiln's text with Kiln's salt: refused [EXPECTED] this text and salt do not match this side's seal  https://explorer-studio-dev.genlayer.com/tx/0xcd03a29ecaa992b21464b0a0d9d7214667927750135f421ec4b4e2552c0bcb49
+2026-10-21T10:25:24Z page 15: kiln opens: ok "REVEAL"  https://explorer-studio-dev.genlayer.com/tx/0xccf79e0e0a5c5e699f00f3accf54a5e99e0f4f09496b6779dcd56238940607cf
+2026-10-21T10:25:33Z page 15: a stranger tries to sign: refused [EXPECTED] only the two sides of this page may do that  https://explorer-studio-dev.genlayer.com/tx/0x47468b78c74577da29723abf1ff626237aeb75272cf3b50afebc512f7595eb97
+2026-10-21T10:25:47Z page 15: a stranger tries no_show before the window closes: refused [EXPECTED] the window for this step is still open  https://explorer-studio-dev.genlayer.com/tx/0xb4997462d152b38202ab8c8bdc9fbea94f366cc1049d234d07170a25ea248c31
+2026-10-21T10:25:55Z page 15: a stranger tries to withdraw: refused [EXPECTED] nothing to withdraw for this address  https://explorer-studio-dev.genlayer.com/tx/0x56f5380b9223d0c15df66489c8ffb2922589574dad12918bfe1819438184340f
+2026-10-21T10:26:08Z open: Kiln opens "Kiln ambassador, November" naming Sera: ok 16  https://explorer-studio-dev.genlayer.com/tx/0x46d78d442e1f2ae5fe03b45db9f621c743fa28e30dc08e0f3308d5d51cdf659d
+2026-10-21T10:26:22Z page 16: Sera joins: ok "SEAL"  https://explorer-studio-dev.genlayer.com/tx/0x667a11eb431e4b09246a58930ab0aa6cabba95458bd22c377b1d1f4589c21fa5
+2026-10-21T10:26:30Z page 16: kiln_r1 seals: ok "SEAL"  https://explorer-studio-dev.genlayer.com/tx/0xc646d72317847ff069867682298e75b16e568ad90fa84242cce304675dc2900c
+2026-10-21T10:26:38Z page 16: sera_r1 seals: ok "REVEAL"  https://explorer-studio-dev.genlayer.com/tx/0x180501f866112a907f1db7401302a6ef36ad479d37576e22268c7950f3d61b6d
+2026-10-21T10:26:46Z page 16: kiln_r1 opens: ok "REVEAL"  https://explorer-studio-dev.genlayer.com/tx/0x6d7e9ece1b0a906d9007f72da642f18e024bb84ac34f1230effe229d41cb4928
+2026-10-21T10:26:54Z page 16: sera_r1 opens: ok "CHECK"  https://explorer-studio-dev.genlayer.com/tx/0xa9c18677b56a1e752e98a8af626fdd377eb4a9a27a071da507233fa59237a00c
+2026-10-21T10:27:29Z page 16: round 1 check, attempt 1: ok "DIFFERENT 2"  https://explorer-studio-dev.genlayer.com/tx/0xbd6606f9c791c75a9b2dee54e8395fcf8d9cc3b67c594417f5a561292e85c63d
+2026-10-21T10:27:41Z page 16: kiln_r2 seals: ok "SEAL"  https://explorer-studio-dev.genlayer.com/tx/0x18c9680ce79819a6f988f10d8a9aac26b42dff9f934bdfea5073b435029e203d

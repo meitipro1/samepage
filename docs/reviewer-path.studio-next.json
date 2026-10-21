@@ -1,0 +1,473 @@
+{
+  "runs": {
+    "rp1": {
+      "site": "https://usesamepage.vercel.app",
+      "contract": "0x7c32684fC11c312685188C105D6F08c2B689b720",
+      "started_at": "2026-10-21T10:27:48.312Z",
+      "accounts": {
+        "opener": "0x8A2E61c6a8811Baa192096a3E95744086C68A9c9",
+        "counterparty": "0xead214b2a2aCBE12A9E5f0A9680ff502deb649de"
+      },
+      "steps": [
+        {
+          "key": "faucet-opener",
+          "method": "faucet",
+          "http": 200,
+          "before": "0",
+          "after": "20000000000000000000",
+          "read_after": "20000000000000000000",
+          "error": null,
+          "at": "2026-10-21T10:27:53.540Z"
+        },
+        {
+          "key": "faucet-counterparty",
+          "method": "faucet",
+          "http": 200,
+          "before": "0",
+          "after": "20000000000000000000",
+          "read_after": "20000000000000000000",
+          "error": null,
+          "at": "2026-10-21T10:27:55.939Z"
+        },
+        {
+          "key": "open",
+          "method": "open_page",
+          "from": "0x8A2E61c6a8811Baa192096a3E95744086C68A9c9",
+          "hash": "0xb13c2082d5315d41970662cb7998d0fae5dcf83879eb1f3aee2f6e5d0c8bd890",
+          "value": "10000000000000000000",
+          "sent_at": "2026-10-21T10:27:58.579Z",
+          "ok": true,
+          "status": "ACCEPTED",
+          "returned": 17,
+          "refusal": null,
+          "expected": "success",
+          "seconds": 8
+        },
+        {
+          "key": "join-wrong-deposit",
+          "method": "join",
+          "from": "0xead214b2a2aCBE12A9E5f0A9680ff502deb649de",
+          "hash": "0x17c5f973b1606fd1b92e361e21e2d0b7dea5f1dfc12718430342abe6dab2e629",
+          "value": "9999999999999999999",
+          "sent_at": "2026-10-21T10:28:06.775Z",
+          "ok": false,
+          "status": "ACCEPTED",
+          "returned": null,
+          "refusal": "send exactly the deposit, 10000000000000000000 wei",
+          "expected": "refusal",
+          "seconds": 8
+        },
+        {
+          "key": "join",
+          "method": "join",
+          "from": "0xead214b2a2aCBE12A9E5f0A9680ff502deb649de",
+          "hash": "0xaa261b7274386599d04f3de6bdf5ecb0a93c78967db563edc40c621d31e5fabb",
+          "value": "10000000000000000000",
+          "sent_at": "2026-10-21T10:28:15.450Z",
+          "ok": true,
+          "status": "ACCEPTED",
+          "returned": "SEAL",
+          "refusal": null,
+          "expected": "success",
+          "seconds": 14
+        },
+        {
+          "key": "seal-opener_r1",
+          "method": "seal",
+          "from": "0x8A2E61c6a8811Baa192096a3E95744086C68A9c9",
+          "hash": "0x4270076db9b788b3e6aa9b190d8401855bb516afab8f1bde744d4a33d48f867a",
+          "value": "0",
+          "sent_at": "2026-10-21T10:28:29.050Z",
+          "ok": true,
+          "status": "ACCEPTED",
+          "returned": "SEAL",
+          "refusal": null,
+          "expected": "success",
+          "seconds": 8
+        },
+        {
+          "key": "open-before-both-sealed",
+          "method": "reveal",
+          "from": "0x8A2E61c6a8811Baa192096a3E95744086C68A9c9",
+          "hash": "0x6c23cc3d1041ae6532190dcb9201a56f511b7fee24cd84ce9028b00f00167a52",
+          "value": "0",
+          "sent_at": "2026-10-21T10:28:36.988Z",
+          "ok": false,
+          "status": "ACCEPTED",
+          "returned": null,
+          "refusal": "accounts open only after both sides have sealed",
+          "expected": "refusal",
+          "seconds": 8
+        },
+        {
+          "key": "seal-counterparty_r1",
+          "method": "seal",
+          "from": "0xead214b2a2aCBE12A9E5f0A9680ff502deb649de",
+          "hash": "0xfca1eff5e8060729a4cbfe35547071d20e295d0a7794fbf969e87672d7c33405",
+          "value": "0",
+          "sent_at": "2026-10-21T10:28:45.637Z",
+          "ok": true,
+          "status": "ACCEPTED",
+          "returned": "REVEAL",
+          "refusal": null,
+          "expected": "success",
+          "seconds": 9
+        },
+        {
+          "key": "reveal-opener_r1",
+          "method": "reveal",
+          "from": "0x8A2E61c6a8811Baa192096a3E95744086C68A9c9",
+          "hash": "0x44bb07dfcf0258c0c3a038595873b1f3a3b081031dd26132e57c37f28d2dde8a",
+          "value": "0",
+          "sent_at": "2026-10-21T10:28:53.492Z",
+          "ok": true,
+          "status": "ACCEPTED",
+          "returned": "REVEAL",
+          "refusal": null,
+          "expected": "success",
+          "seconds": 8
+        },
+        {
+          "key": "reveal-counterparty_r1",
+          "method": "reveal",
+          "from": "0xead214b2a2aCBE12A9E5f0A9680ff502deb649de",
+          "hash": "0x24771007235b1fee6bb7dd4c1d3569ba10e1afd671542fe87a4918aef2a37235",
+          "value": "0",
+          "sent_at": "2026-10-21T10:32:32.306Z",
+          "ok": true,
+          "status": "ACCEPTED",
+          "returned": "CHECK",
+          "refusal": null,
+          "expected": "success",
+          "seconds": 9
+        },
+        {
+          "key": "check-r1-1",
+          "method": "check",
+          "from": "0xead214b2a2aCBE12A9E5f0A9680ff502deb649de",
+          "hash": "0x5cdbdda2c77e02ffa5373982a1219f61cd0eee26f3fd92c696a59fcbb50ed4f1",
+          "value": "0",
+          "sent_at": "2026-10-21T10:32:42.432Z",
+          "ok": true,
+          "status": "ACCEPTED",
+          "returned": "DIFFERENT 1",
+          "refusal": null,
+          "expected": "success",
+          "seconds": 43
+        },
+        {
+          "key": "seal-opener_r2",
+          "method": "seal",
+          "from": "0x8A2E61c6a8811Baa192096a3E95744086C68A9c9",
+          "hash": "0xc7c69b69e93ec8974ba94199f3e1a0f20139c85c2b56eee7f7f516319102f9d4",
+          "value": "0",
+          "sent_at": "2026-10-21T10:33:25.870Z",
+          "ok": true,
+          "status": "ACCEPTED",
+          "returned": "SEAL",
+          "refusal": null,
+          "expected": "success",
+          "seconds": 8
+        },
+        {
+          "key": "seal-counterparty_r2",
+          "method": "seal",
+          "from": "0xead214b2a2aCBE12A9E5f0A9680ff502deb649de",
+          "hash": "0x503eb503583a3b9c93132979d40a6a95e541082060f7808d1c6a2eb36b4328f1",
+          "value": "0",
+          "sent_at": "2026-10-21T10:33:34.018Z",
+          "ok": true,
+          "status": "ACCEPTED",
+          "returned": "REVEAL",
+          "refusal": null,
+          "expected": "success",
+          "seconds": 13
+        },
+        {
+          "key": "reveal-opener_r2",
+          "method": "reveal",
+          "from": "0x8A2E61c6a8811Baa192096a3E95744086C68A9c9",
+          "hash": "0x2f17e435dbdd128d170e140cb87477a5bba16c5af5789166c040ba7288f4862d",
+          "value": "0",
+          "sent_at": "2026-10-21T10:33:46.622Z",
+          "ok": true,
+          "status": "ACCEPTED",
+          "returned": "REVEAL",
+          "refusal": null,
+          "expected": "success",
+          "seconds": 8
+        },
+        {
+          "key": "reveal-counterparty_r2",
+          "method": "reveal",
+          "from": "0xead214b2a2aCBE12A9E5f0A9680ff502deb649de",
+          "hash": "0xa7f77a4c5b7cb9eb885a8c3bd428d3f91a4d4c88b7e28fe37164c981afd78ecb",
+          "value": "0",
+          "sent_at": "2026-10-21T10:33:55.107Z",
+          "ok": true,
+          "status": "ACCEPTED",
+          "returned": "CHECK",
+          "refusal": null,
+          "expected": "success",
+          "seconds": 8
+        },
+        {
+          "key": "check-r2-1",
+          "method": "check",
+          "from": "0xead214b2a2aCBE12A9E5f0A9680ff502deb649de",
+          "hash": "0x9f98bdbac7249c929fc8efc57197c852d34ff2ebd9d92167f482578d17ce4e49",
+          "value": "0",
+          "sent_at": "2026-10-21T10:34:04.264Z",
+          "ok": true,
+          "status": "ACCEPTED",
+          "returned": "SAME_PAGE",
+          "refusal": null,
+          "expected": "success",
+          "seconds": 36
+        },
+        {
+          "key": "sign-opener",
+          "method": "sign",
+          "from": "0x8A2E61c6a8811Baa192096a3E95744086C68A9c9",
+          "hash": "0x7afb1faf8e73dd8ba4424af767591882a0114ff47b5540095c2a99b365b5f590",
+          "value": "0",
+          "sent_at": "2026-10-21T10:34:42.765Z",
+          "ok": true,
+          "status": "ACCEPTED",
+          "returned": "SIGN",
+          "refusal": null,
+          "expected": "success",
+          "seconds": 8
+        },
+        {
+          "key": "sign-counterparty",
+          "method": "sign",
+          "from": "0xead214b2a2aCBE12A9E5f0A9680ff502deb649de",
+          "hash": "0xe03dd29930592ffdb45e076fdaa3981fb6a58d0a17e7c2c80f6261c1f4076f48",
+          "value": "0",
+          "sent_at": "2026-10-21T10:34:50.807Z",
+          "ok": true,
+          "status": "ACCEPTED",
+          "returned": "AGREED",
+          "refusal": null,
+          "expected": "success",
+          "seconds": 8
+        },
+        {
+          "key": "withdraw-opener",
+          "method": "withdraw",
+          "from": "0x8A2E61c6a8811Baa192096a3E95744086C68A9c9",
+          "hash": "0x4d47fc65008ff5038a7ceac382cf2f818ca12b367f32dc5af6cd0b5a94edfa6e",
+          "value": "0",
+          "sent_at": "2026-10-21T10:35:01.290Z",
+          "ok": true,
+          "status": "ACCEPTED",
+          "returned": 10000000000000000000,
+          "refusal": null,
+          "expected": "success",
+          "seconds": 8,
+          "final_status": "FINALIZED",
+          "paid_by_contract": "10000000000000000000"
+        },
+        {
+          "key": "withdraw-counterparty",
+          "method": "withdraw",
+          "from": "0xead214b2a2aCBE12A9E5f0A9680ff502deb649de",
+          "hash": "0xa8f870d41650d9e35402847be3f60013f54ffc51ce503222bcb18769fe835cff",
+          "value": "0",
+          "sent_at": "2026-10-21T10:35:40.407Z",
+          "ok": true,
+          "status": "ACCEPTED",
+          "returned": 10000000000000000000,
+          "refusal": null,
+          "expected": "success",
+          "seconds": 13,
+          "final_status": "FINALIZED",
+          "paid_by_contract": "10000000000000000000"
+        }
+      ],
+      "salts": {
+        "opener_r1": "a34aeb31-ec15-469c-ad62-58d86e763cff",
+        "counterparty_r1": "73d7de64-69da-4942-a59a-071943188d25",
+        "opener_r2": "d2016bcd-8b1d-4350-831c-9e18e1558f3f",
+        "counterparty_r2": "354e4543-574e-4461-b6da-eb3546b20ba9"
+      },
+      "page_id": 17,
+      "round1": {
+        "verdict": "DIFFERENT",
+        "count": 1,
+        "statuses": {
+          "amount": "MATCH",
+          "deliverable": "MATCH",
+          "deadline": "MATCH",
+          "payment": "DIFFER",
+          "rights": "ABSENT",
+          "cancellation": "ABSENT"
+        },
+        "notes": {
+          "amount": "Both say 250 USDC for 3 banners.",
+          "cancellation": "Neither account mentions cancellation terms.",
+          "deadline": "Both say November 6, 2026.",
+          "deliverable": "Both say 3 banners at 1500x500 delivered as PNG and Figma source file.",
+          "payment": "Account A says full 250 USDC paid on delivery; Account B says 125 USDC upfront before work starts and 125 USDC on delivery.",
+          "rights": "Neither account mentions ownership or usage rights."
+        }
+      },
+      "round2": {
+        "verdict": "SAME_PAGE",
+        "count": 0,
+        "statuses": {
+          "amount": "MATCH",
+          "deliverable": "MATCH",
+          "deadline": "MATCH",
+          "payment": "MATCH",
+          "rights": "ABSENT",
+          "cancellation": "ABSENT"
+        },
+        "notes": {
+          "amount": "Both accounts say 250 USDC",
+          "cancellation": "Neither account mentions what happens if either side backs out",
+          "deadline": "Both accounts say November 6, 2026 (Account A: 'Nov 6, 2026', Account B: 'November 6, 2026')",
+          "deliverable": "Both accounts say 3 banners at 1500x500, PNG plus Figma source/file",
+          "payment": "Both accounts say half before starting, half on delivery",
+          "rights": "Neither account mentions ownership, licensing, or usage rights"
+        }
+      },
+      "final_page": {
+        "status": "AGREED",
+        "opener_payout": "10000000000000000000",
+        "counterparty_payout": "10000000000000000000"
+      },
+      "reconciliation": {
+        "at": "2026-10-21T10:38:00.938Z",
+        "accounts": {
+          "opener": {
+            "address": "0x8A2E61c6a8811Baa192096a3E95744086C68A9c9",
+            "expected": "19999323283249977416",
+            "balance": "19999323283249977416",
+            "difference": "0",
+            "transactions": [
+              {
+                "key": "open",
+                "value": "10000000000000000000",
+                "fee_net": "78636750002823",
+                "fee_status": "settled"
+              },
+              {
+                "key": "seal-opener_r1",
+                "value": "0",
+                "fee_net": "78628750002823",
+                "fee_status": "settled"
+              },
+              {
+                "key": "open-before-both-sealed",
+                "value": "0",
+                "fee_net": "78628000002823",
+                "fee_status": "settled"
+              },
+              {
+                "key": "reveal-opener_r1",
+                "value": "0",
+                "fee_net": "78630250002823",
+                "fee_status": "settled"
+              },
+              {
+                "key": "seal-opener_r2",
+                "value": "0",
+                "fee_net": "78628750002823",
+                "fee_status": "settled"
+              },
+              {
+                "key": "reveal-opener_r2",
+                "value": "0",
+                "fee_net": "78630250002823",
+                "fee_status": "settled"
+              },
+              {
+                "key": "sign-opener",
+                "value": "0",
+                "fee_net": "78628250002823",
+                "fee_status": "settled"
+              },
+              {
+                "key": "withdraw-opener",
+                "value": "0",
+                "fee_net": "126305750002823",
+                "fee_status": "settled"
+              }
+            ]
+          },
+          "counterparty": {
+            "address": "0xead214b2a2aCBE12A9E5f0A9680ff502deb649de",
+            "expected": "19999080621749970007",
+            "balance": "20099080621750003888",
+            "difference": "100000000000033881",
+            "transactions": [
+              {
+                "key": "join-wrong-deposit",
+                "value": "0",
+                "fee_net": "78628000002823",
+                "fee_status": "settled"
+              },
+              {
+                "key": "join",
+                "value": "10000000000000000000",
+                "fee_net": "78628750002823",
+                "fee_status": "settled"
+              },
+              {
+                "key": "seal-counterparty_r1",
+                "value": "0",
+                "fee_net": "78629750002823",
+                "fee_status": "settled"
+              },
+              {
+                "key": "reveal-counterparty_r1",
+                "value": "0",
+                "fee_net": "78631000002823",
+                "fee_status": "settled"
+              },
+              {
+                "key": "check-r1-1",
+                "value": "0",
+                "fee_net": "161924000004586",
+                "fee_status": "settled"
+              },
+              {
+                "key": "seal-counterparty_r2",
+                "value": "0",
+                "fee_net": "78629750002823",
+                "fee_status": "settled"
+              },
+              {
+                "key": "reveal-counterparty_r2",
+                "value": "0",
+                "fee_net": "78631250002823",
+                "fee_status": "settled"
+              },
+              {
+                "key": "check-r2-1",
+                "value": "0",
+                "fee_net": "80737750002823",
+                "fee_status": "settled"
+              },
+              {
+                "key": "sign-counterparty",
+                "value": "0",
+                "fee_net": "78632250002823",
+                "fee_status": "settled"
+              },
+              {
+                "key": "withdraw-counterparty",
+                "value": "0",
+                "fee_net": "126305750002823",
+                "fee_status": "settled"
+              }
+            ]
+          }
+        }
+      },
+      "finished_at": "2026-10-21T10:38:00.938Z"
+    }
+  }
+}

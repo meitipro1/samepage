@@ -382,6 +382,7 @@ def evaluation_page() -> str:
     verdicts = sum(1 for c in run if (got(c["id"])["verdict"], got(c["id"])["count"]) == (c["verdict"], c["count"]))
     terms_hit = sum(1 for c in run for t in TERM_NAMES if got(c["id"])["statuses"][t] == c["statuses"][t])
     h_run = [c for c in held if got(c["id"])]
+    h_tried = [c for c in held if any(a["case"] == c["id"] for a in results.get("attempts", []))]
     lines = [
         "---",
         "title: Evaluation results with transactions",
@@ -404,8 +405,10 @@ def evaluation_page() -> str:
             f"- **All six statuses: {all_six} of {len(run)}** golden cases matched the expected status on every term, "
             f"and **{terms_hit} of {len(run) * 6}** term statuses matched one by one. The spec scores cases on all six "
             "statuses, so that is the headline number" + (f" ({len(main) - len(run)} not run yet)." if len(run) < len(main) else "."),
-            f"- **Held-out cases: {len(h_run)} of {len(held)} checked.** They were written before the first run with no "
-            "expected answer, checked once after the golden results were recorded, and are shown exactly as they came out.",
+            f"- **Held-out cases: {len(h_run)} of {len(h_tried)} run reached a verdict.** They were written before the first run "
+            "with no expected answer, checked once after the golden results were recorded, and are shown exactly as they came "
+            "out. A held-out round where the validators did not agree stored nothing and is listed as no decision; it is not "
+            "sent again.",
         ]
         if lock:
             lines.append(
@@ -436,7 +439,14 @@ def evaluation_page() -> str:
                 mark = "✓ all six" if same else "✗ " + ", ".join(misses)
             where = f"[page {row['page_id']}](/p/{row['page_id']})"
         else:
-            statuses, result, mark, where = "", "not run yet", "", ""
+            tried = [a for a in results.get("attempts", []) if a["case"] == c["id"]]
+            pid = results["cases"].get(c["id"], {}).get("page_id")
+            where = f"[page {pid}](/p/{pid})" if pid else ""
+            if tried and not any(a["ok"] for a in tried):
+                statuses, result, mark = "", "**no decision**", "validators did not agree"
+                link = f"[{tried[-1]['tx'][:10]}…]({explorer}/tx/{tried[-1]['tx']})"
+            else:
+                statuses, result, mark = "", "not run yet", ""
         lines.append(f"| {c['id']} {where} | {mdx_text(c['change'])} | {expected} | {statuses} | {result} | {mark} | {link} |")
     lines += ["", "## The accounts", ""]
     for c in golden["cases"]:

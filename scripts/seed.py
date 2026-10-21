@@ -50,6 +50,8 @@ NOSHOW_KILN = "Sera designs a logo for Kiln and delivers PNG and SVG files by Oc
 
 OPEN_TITLE = "Kiln ambassador, November"
 OPEN_KILN = "Sera is a Kiln ambassador for November 2026: 4 posts and 1 Space on X. Kiln pays 400 USDC on Dec 1, 2026."
+OPEN_SERA = "I am Kiln's ambassador for November 2026, with 4 posts and 1 Space on X, for 400 USDC paid on Nov 1, 2026, at the start of the month."
+OPEN_KILN_2 = "Sera is a Kiln ambassador for November 2026: 4 posts and 1 Space on X. Kiln pays 400 USDC, half on Nov 1 and half on Dec 1, 2026."
 
 
 def now_iso() -> str:
@@ -119,8 +121,7 @@ def secrets() -> dict:
 def keep(key: str, text: str, salt: str) -> None:
     held = secrets()
     held[key] = {"text": text, "salt": salt}
-    SECRETS.write_text(json.dumps(held, indent=2, ensure_ascii=False) + "
-", encoding="utf-8")
+    SECRETS.write_text(json.dumps(held, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
 
 def seal(record, page, who, chain, text, label):
@@ -197,9 +198,23 @@ def refusals(chains, record):
 
 
 def open_one(chains, record):
+    """Page C: round 1 differs on when Kiln pays, and the page is left in round 2 with Kiln's new account sealed."""
+    kiln, sera = chains["seed_kiln"], chains["seed_sera"]
     page = open_page(record, "open", chains, OPEN_TITLE, DEPOSIT)
-    step(record, f"page {page['id']}: Sera joins", chains["seed_sera"].send(C.address(), "join", [page["id"]], value=DEPOSIT))
-    seal(record, page, "kiln", chains["seed_kiln"], OPEN_KILN, "kiln")
+    pid = page["id"]
+    step(record, f"page {pid}: Sera joins", sera.send(C.address(), "join", [pid], value=DEPOSIT))
+    seal(record, page, "kiln", kiln, OPEN_KILN, "kiln_r1")
+    seal(record, page, "sera", sera, OPEN_SERA, "sera_r1")
+    reveal(record, page, kiln, "kiln_r1")
+    reveal(record, page, sera, "sera_r1")
+    for attempt in range(3):
+        out = sera.send(C.address(), "check", [pid])
+        step(record, f"page {pid}: round 1 check, attempt {attempt + 1}", out, expect_ok=out["ok"])
+        if out["ok"]:
+            break
+    state = kiln.read_json(C.address(), "get_page", [pid])
+    if state["step"] == "SEAL" and state["round"] == 2:
+        seal(record, page, "kiln", kiln, OPEN_KILN_2, "kiln_r2")
 
 
 def withdraw_all(chains, record):
