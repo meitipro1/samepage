@@ -9,7 +9,7 @@ Every case below is one page on the deployed contract, [`0x7c32684fC11c312685188
 
 - **Verdicts: 9 of 9** golden cases came back with the expected verdict and count.
 - **All six statuses: 9 of 9** golden cases matched the expected status on every term, and **54 of 54** term statuses matched one by one. The spec scores cases on all six statuses, so that is the headline number.
-- **Held-out cases: 1 of 2 run reached a verdict.** They were written before the first run with no expected answer, checked once after the golden results were recorded, and are shown exactly as they came out. A held-out round where the validators did not agree stored nothing and is listed as no decision; it is not sent again.
+- **Held-out cases: 2 of 3 run reached a verdict.** They were written before the first run with no expected answer, checked once after the golden results were recorded, and are shown exactly as they came out. A held-out round where the validators did not agree stored nothing and is listed as no decision; it is not sent again.
 - `eval/golden.json` was hashed and timestamped before the first run: sha256 `ef4f3a405d90b565d1e242319d30d40af999154ac8e018d0a2b05d660f6659a5`, locked at 2026-10-21T09:54:59Z. Nothing was tuned; the judge prompt is the spec's, word for word.
 
 Statuses read in term order, amount, deliverable, deadline, payment, rights, cancellation: M is MATCH, D is DIFFER, A is ABSENT.
@@ -27,7 +27,7 @@ Statuses read in term order, amount, deliverable, deadline, payment, rights, can
 | 9 [page 10](/p/10) | Only one side says Kiln may repost | DIFFERENT · 1 MMMMDA | MMMMDA | DIFFERENT · 1 | ✓ all six | [0xbb3991eb…](https://explorer-studio-dev.genlayer.com/tx/0xbb3991eba439060fc0aa72a524f7e8be0097c5f24f6000fdacb17d1b6d2a8bd9) |
 | H1 [page 11](/p/11) | By the end of the week against by Friday | EITHER | MMDMAA | DIFFERENT · 1 | held out | [0xb7797e15…](https://explorer-studio-dev.genlayer.com/tx/0xb7797e158a61eabe3ac66da59f31d1fec4c82e2fa226fd14fde1205fd06f32bd) |
 | H2 [page 12](/p/12) | Around 600 USDC against 600 USDC | EITHER |  | **no decision** | validators did not agree | [0x61d17430…](https://explorer-studio-dev.genlayer.com/tx/0x61d17430faaacbbbe6f044a28474c33d6338c0f4493e55c9dab80f3c27575515) |
-| H3 [page 13](/p/13) | A thread against a long post | EITHER |  | not run yet |  |  |
+| H3 [page 13](/p/13) | A thread against a long post | EITHER | MDMMAA | DIFFERENT · 1 | held out | [0x25f20b16…](https://explorer-studio-dev.genlayer.com/tx/0x25f20b16a25b3477cc9b405cd645e5ac2fd62336b8ab02fbc2083841e5fa8ca6) |
 
 ## The accounts
 
@@ -99,6 +99,8 @@ B: "I post three tweets about Kiln's launch, all up by October 24, 2026, for 600
 
 B: "I write one long post about Kiln's launch, up by October 24, 2026, for 600 USDC, paid on delivery once it is live."
 
+Leader's notes: amount: A: 600 USDC; B: 600 USDC; cancellation: Neither account mentions cancellation terms.; deadline: A: by Oct 24, 2026; B: up by October 24, 2026; deliverable: A: a thread on X about Kiln launch; B: one long post about Kiln's launch; payment: A: all of it after the thread is live; B: paid on delivery once it is live; rights: Neither account mentions ownership or usage rights.
+
 ## Every check transaction
 
 - Case 1, attempt 1: decided, `SAME_PAGE` ([tx](https://explorer-studio-dev.genlayer.com/tx/0x1d3028eb2e100a15560d1df8c6174cd55facfceccd846042482119e333695647))
@@ -112,6 +114,7 @@ B: "I write one long post about Kiln's launch, up by October 24, 2026, for 600 U
 - Case 9, attempt 1: decided, `DIFFERENT 1` ([tx](https://explorer-studio-dev.genlayer.com/tx/0xbb3991eba439060fc0aa72a524f7e8be0097c5f24f6000fdacb17d1b6d2a8bd9))
 - Case H1, attempt 1: decided, `DIFFERENT 1` ([tx](https://explorer-studio-dev.genlayer.com/tx/0xb7797e158a61eabe3ac66da59f31d1fec4c82e2fa226fd14fde1205fd06f32bd))
 - Case H2, attempt 1: no decision: status=UNDETERMINED execution=FINISHED_WITH_RETURN ([tx](https://explorer-studio-dev.genlayer.com/tx/0x61d17430faaacbbbe6f044a28474c33d6338c0f4493e55c9dab80f3c27575515))
+- Case H3, attempt 1: decided, `DIFFERENT 1` ([tx](https://explorer-studio-dev.genlayer.com/tx/0x25f20b16a25b3477cc9b405cd645e5ac2fd62336b8ab02fbc2083841e5fa8ca6))
 
 ## Reproduce
 

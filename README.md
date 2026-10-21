@@ -11,8 +11,8 @@ with a good-faith deposit that stops either side from ghosting.
   [`0x01c1460f…`](https://explorer-studio-dev.genlayer.com/tx/0x01c1460f82343e19817c2cedd5622913a21f2ab552f674d2a13b8d6c31b72b2e),
   source sha256 `fbc5e9ac…b28d43`, frozen in [`contracts/FROZEN.json`](contracts/FROZEN.json); `python scripts/verify.py`
   reads the deployed bytes back and finds them identical
-- **Evaluation:** @@EVAL@@ ([`eval/results.md`](eval/results.md))
-- **Offline suite:** @@TESTS@@ tests, and @@MUTANTS@@ mutants caught ([`docs/MUTATIONS.md`](docs/MUTATIONS.md))
+- **Evaluation:** golden cases **9 of 9 matched on all six statuses** through real consensus on the deployed contract; held-out cases H1 and H3 decided, H2 ("around 600 USDC") reached **no decision**, and all three are published as they came out ([`eval/results.md`](eval/results.md))
+- **Offline suite:** 160 tests, and 76 of 76 mutants caught ([`docs/MUTATIONS.md`](docs/MUTATIONS.md))
 
 ## How it works
 
@@ -50,7 +50,18 @@ The full reference is generated from the source: [docs/reference/contract](https
 
 ## What is on chain
 
-@@ONCHAIN@@
+| | |
+|---|---|
+| Pages 2 to 13 | The golden and held-out cases, one page each, one `check` per case; [`eval/results.md`](eval/results.md) |
+| Page 14, agreed | The spec's story: round 1 **Different · 2** (deliverable and payment), round 2 **Same page**, both signed, both 20 GEN deposits withdrawn after finality |
+| Page 15, refusals | A stranger joining, a wrong deposit, an open before both sealed, a copied seal that could not be opened, a stranger signing, a no-show before the window, a withdrawal with nothing due |
+| Page 16, round 2 | Round 1 **Different · 2** on when the fee is paid; round 2 open with one side sealed |
+| Page 17, reviewer path | From two fresh wallets through the live site's faucet and signing code: Different · 1, then Same page, signed, both withdrew; balances reconciled ([`docs/reviewer-path.studio-next.json`](docs/reviewer-path.studio-next.json)) |
+| Pages 1, 12, 15, no-shows | Closed by `no_show` once their windows lapse: Sera never sealed (page 1), a check that never decided (page 12), a copied seal never opened (page 15) |
+| Pages 18 and 19 | The faucet bug reproduced and its fix verified (see [`PROGRESS.md`](PROGRESS.md)) |
+
+Every step and transaction is in [`docs/seed.studio-next.json`](docs/seed.studio-next.json) and
+[`submission/evidence.md`](submission/evidence.md).
 
 ## Repository
 

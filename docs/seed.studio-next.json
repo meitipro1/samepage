@@ -393,6 +393,44 @@
       "returned": "SEAL",
       "refusal": "",
       "detail": ""
+    },
+    {
+      "at": "2026-10-21T10:45:09Z",
+      "what": "seed_kiln withdraws 20 GEN",
+      "method": "withdraw",
+      "tx": "0x0cab5182ce1833070f78ffe76eb73aa17a2f8d5c1b0c178ef5f6b0fc0e885400",
+      "ok": true,
+      "returned": 20000000000000000000,
+      "refusal": "",
+      "detail": ""
+    },
+    {
+      "at": "2026-10-21T10:45:47Z",
+      "what": "seed_sera withdraws 20 GEN",
+      "method": "withdraw",
+      "tx": "0x21e4e16f1aab165f652629901193c8b59957114895a7a6a2b9aff16dbd74df99",
+      "ok": true,
+      "returned": 20000000000000000000,
+      "refusal": "",
+      "detail": ""
+    }
+  ],
+  "withdrawals": [
+    {
+      "who": "seed_kiln",
+      "address": "0x4Ad9CA5A68758B72830F049fB159c11F74c609Ed",
+      "due": "20000000000000000000",
+      "before": "149998661386999952009",
+      "after": "149998535080749949186",
+      "tx": "0x0cab5182ce1833070f78ffe76eb73aa17a2f8d5c1b0c178ef5f6b0fc0e885400"
+    },
+    {
+      "who": "seed_sera",
+      "address": "0xd6F03301D7c2E7C5cE300859e53968a310Ca06E1",
+      "due": "20000000000000000000",
+      "before": "149998737575749954832",
+      "after": "169998611269499952009",
+      "tx": "0x21e4e16f1aab165f652629901193c8b59957114895a7a6a2b9aff16dbd74df99"
     }
   ]
 }

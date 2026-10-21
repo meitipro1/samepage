@@ -142,9 +142,29 @@ def noshow_start(chains, record):
     print(f"page {page['id']} now waits on Sera's seal. After the 6 hour window: python scripts/seed.py noshow-finish")
 
 
+#: Pages closed by no_show once their windows lapse: page A (Sera never sealed), the refusals page (Sera sealed a
+#: copy of Kiln's seal and so could never open it), and golden case H2's page, whose check never reached a verdict.
+LAPSING = [("noshow", "the seal window closed with Sera's seal missing"), ("refusals", "the opening window closed with Sera's copied seal unopened")]
+H2_PAGE = 12
+
+
 def noshow_finish(chains, record):
-    page = record["pages"]["noshow"]
-    step(record, f"page {page['id']}: a stranger calls no_show after the seal window", chains["seed_stranger"].send(C.address(), "no_show", [page["id"]]))
+    import time
+
+    stranger = chains["seed_stranger"]
+    targets = [(record["pages"][key]["id"], why) for key, why in LAPSING] + [(H2_PAGE, "the check window closed with no verdict on golden case H2")]
+    for pid, why in targets:
+        page = stranger.read_json(C.address(), "get_page", [pid])
+        if page["status"] != "OPEN":
+            print(f"page {pid} is already {page['status']}")
+            continue
+        wait = int(page["step_end"]) + 90 - int(time.time())
+        if wait > 0:
+            print(f"page {pid}: waiting {wait // 60} min for its {page['step']} window to close")
+            time.sleep(wait)
+        step(record, f"page {pid}: a stranger calls no_show, {why}", stranger.send(C.address(), "no_show", [pid]))
+        after = stranger.read_json(C.address(), "get_page", [pid])
+        print(f"page {pid}: {after['status']}, absent {after['absent']}, opener {int(after['opener_payout']) / C.GEN:g} GEN, counterparty {int(after['counterparty_payout']) / C.GEN:g} GEN")
 
 
 def story(chains, record):
